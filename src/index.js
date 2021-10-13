@@ -9,6 +9,7 @@ import {
 const App = () => {
     const [token, setToken] = useState("");
     const [user, setUser] = useState("");
+    console.log(token);
 
     return (
         <>

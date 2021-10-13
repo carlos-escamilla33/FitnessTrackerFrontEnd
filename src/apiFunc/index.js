@@ -1,5 +1,5 @@
 
-const APIURL = `https://young-bastion-77866.herokuapp.com/`
+const APIURL = `https://fitnesstrac-kr.herokuapp.com/api/`
 
 export const callApi = async ({url, method, token, body}) => {
     try {
