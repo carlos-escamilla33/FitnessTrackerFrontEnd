@@ -68,11 +68,11 @@ const Register = (props) => {
                     />
                 </div>
                 <div>
-                    <button>Submit</button>
+                    <button type="submit">Submit</button>
                 </div>
             </form>
         </>
     )
-}
+};
 
 export default Register;

@@ -10,6 +10,7 @@ const App = () => {
     const [token, setToken] = useState("");
     const [user, setUser] = useState("");
     console.log(token);
+    console.log(user);
 
     return (
         <>

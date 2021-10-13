@@ -3,9 +3,80 @@ import { callApi } from "../../apiFunc";
 import "./Login.css";
 
 const Login = (props) => {
+    const { setToken, setUser } = props;
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const loginUser = async () => {
+        try {
+
+            const response = await callApi({
+                url: "/users/login",
+                method: "POST",
+                body: {
+                    username,
+                    password
+                }
+            })
+            console.log(response);
+            if (response) {
+                setUser(username);
+                setToken(response.token)
+            }
+
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    const usernameHandler = (event) => {
+        setUsername(event.target.value);
+    }
+
+    const passwordHandler = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+
+        loginUser();
+
+        setUsername("");
+        setPassword("");
+    }
+
+
     return (
         <>
-            <h1>Hello world</h1>
+            <form onSubmit={onSubmitHandler}>
+
+                <h1>Login</h1>
+
+                <div>
+                    <input
+                        placeholder="username"
+                        value={username}
+                        onChange={usernameHandler}
+                        type="text"
+                    />
+                </div>
+
+                <div>
+                    <input
+                        placeholder="password"
+                        value={password}
+                        onChange={passwordHandler}
+                        type="password"
+                    />
+                </div>
+
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+
+            </form>
         </>
     )
 }
