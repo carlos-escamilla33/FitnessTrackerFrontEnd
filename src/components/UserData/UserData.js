@@ -3,7 +3,7 @@ import { callApi } from "../../apiFunc";
 import {UserContext} from "../../context/UserContext";
 
 const UserData = () => {
-    const { token, user, setUser } = useContext(UserContext);
+    const { token, user } = useContext(UserContext);
 
     const personalData = async () => {
         try {
@@ -12,7 +12,6 @@ const UserData = () => {
                 token
             });
             console.log(response);
-            setUser(response.username);
         }
         catch (error) {
             console.log(error);
