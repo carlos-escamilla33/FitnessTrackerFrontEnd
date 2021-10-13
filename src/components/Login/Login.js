@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { callApi } from "../../apiFunc";
+import { useHistory } from"react-router-dom";
 import "./Login.css";
 
 const Login = (props) => {
     const { setToken, setUser } = props;
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const history = useHistory();
 
     const loginUser = async () => {
         try {
@@ -22,6 +24,9 @@ const Login = (props) => {
             if (response) {
                 setUser(username);
                 setToken(response.token)
+                if (response.token) {
+                    history.push("/users/me");
+                }
             }
 
         }

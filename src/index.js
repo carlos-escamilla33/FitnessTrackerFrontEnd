@@ -22,7 +22,7 @@ const App = () => {
                 <Register setToken={setToken} />
             </Route>
             <Route path="/users/me">
-                <UserData token={token}/>
+                <UserData token={token} setUser={setUser} user={user} />
             </Route>
         </>
     )
