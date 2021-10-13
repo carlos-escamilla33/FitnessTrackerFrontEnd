@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { callApi } from "../../apiFunc";
-import { useHistory } from"react-router-dom";
+import { useHistory } from "react-router-dom";
+import { UserContext } from "../../context/UserContext.js";
 import "./Login.css";
 
-const Login = (props) => {
-    const { setToken, setUser } = props;
+const Login = () => {
+    const { setToken, setUser } = useContext(UserContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();

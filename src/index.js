@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { UserProvider } from './context/UserContext';
 import {
     Login,
     Register,
@@ -8,21 +9,17 @@ import {
 } from "./components";
 
 const App = () => {
-    const [token, setToken] = useState("");
-    const [user, setUser] = useState("");
-    console.log(token);
-    console.log(user);
 
     return (
         <>
             <Route path="/users/login">
-                <Login setToken={setToken} setUser={setUser} />
+                <Login />
             </Route>
             <Route path="/users/register">
-                <Register setToken={setToken} />
+                <Register />
             </Route>
             <Route path="/users/me">
-                <UserData token={token} setUser={setUser} user={user} />
+                <UserData />
             </Route>
         </>
     )
@@ -30,7 +27,9 @@ const App = () => {
 
 ReactDOM.render(
     <Router>
-        <App />
+        <UserProvider>
+            <App />
+        </UserProvider>
     </Router>,
     document.getElementById('app'),
 );

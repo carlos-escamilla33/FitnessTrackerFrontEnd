@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { callApi } from "../../apiFunc";
+import { UserContext } from "../../context/UserContext";
 import "./Register.css";
 
-const Register = (props) => {
-    const { setToken } = props;
+const Register = () => {
+    const { setToken } = useContext(UserContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -33,7 +34,7 @@ const Register = (props) => {
     const usernameHandler = (event) => {
         setUsername(event.target.value);
     }
- 
+
     const passwordHandler = (event) => {
         setPassword(event.target.value);
     }

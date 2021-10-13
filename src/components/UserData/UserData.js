@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { callApi } from "../../apiFunc";
+import {UserContext} from "../../context/UserContext";
 
-const UserData = (props) => {
-    const { token, user, setUser } = props;
+const UserData = () => {
+    const { token, user, setUser } = useContext(UserContext);
 
     const personalData = async () => {
         try {
