@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
     Login,
-    Register
+    Register,
+    UserData
 } from "./components";
 
 const App = () => {
@@ -19,6 +20,9 @@ const App = () => {
             </Route>
             <Route path="/users/register">
                 <Register setToken={setToken} />
+            </Route>
+            <Route path="/users/me">
+                <UserData token={token}/>
             </Route>
         </>
     )
