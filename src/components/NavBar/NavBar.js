@@ -11,7 +11,6 @@ import {
 
 const NavBar = () => {
     const { token, setToken, user } = useContext(UserContext);
-    const history = useHistory()
 
     const logout = () => {
         setToken("");
@@ -25,7 +24,12 @@ const NavBar = () => {
                         FitnessTracker
                     </Typography>
                     <Button component={Link} to="/" color="inherit">Home</Button>
-                    <Button onClick={logout}component={Link} to="/users/login" color="inherit">Login</Button>
+                    {
+                        token.length > 1 ? 
+                        <Button onClick={logout}component={Link} to="/" color="inherit">Logout</Button> 
+                        :
+                        <Button component={Link} to="/users/login" color="inherit">Login</Button>
+                    }
                 </Toolbar>
             </AppBar>
         </Box>
