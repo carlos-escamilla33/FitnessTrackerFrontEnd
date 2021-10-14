@@ -6,12 +6,12 @@ const Home = () => {
     const { token, user } = useContext(UserContext);
     const history = useHistory();
 
+    console.log("------>TOKEN", token)
+    console.log("------>USER",user);
+
     return (
         <>
             <h1>Home Page</h1>
-            {
-                token && user.length < 1 ? null : history.push("/")
-            }
         </>
     )
 }

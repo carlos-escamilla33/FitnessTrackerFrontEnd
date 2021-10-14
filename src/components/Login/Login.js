@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { callApi } from "../../apiFunc";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext.js";
 import { Button, TextField } from "@material-ui/core";
 import "./Login.css";
@@ -85,6 +85,15 @@ const Login = () => {
 
                 <div>
                     <Button color="primary" variant="contained" type="submit">Submit</Button>
+                </div>
+
+                <div>
+                    <h3>Dont have an account? Register down below</h3>
+                    <Button 
+                    component={Link} to="/users/register" 
+                    color="primary" 
+                    variant="contained" 
+                    type="submit">Register</Button>
                 </div>
 
             </form>
