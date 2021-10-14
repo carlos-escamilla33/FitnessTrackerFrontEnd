@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { callApi } from "../../apiFunc";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../context/UserContext.js";
+import { Button, TextField } from "@material-ui/core";
 import "./Login.css";
 
 const Login = () => {
@@ -61,8 +62,10 @@ const Login = () => {
                 <h1>Login</h1>
 
                 <div>
-                    <input
-                        placeholder="username"
+                    <TextField
+                        label="username"
+                        id="outlined-basic"
+                        variant="outlined"
                         value={username}
                         onChange={usernameHandler}
                         type="text"
@@ -70,8 +73,10 @@ const Login = () => {
                 </div>
 
                 <div>
-                    <input
-                        placeholder="password"
+                    <TextField
+                        label="password"
+                        id="outlined-basic"
+                        variant="outlined"
                         value={password}
                         onChange={passwordHandler}
                         type="password"
@@ -79,7 +84,7 @@ const Login = () => {
                 </div>
 
                 <div>
-                    <button type="submit">Submit</button>
+                    <Button color="primary" variant="contained" type="submit">Submit</Button>
                 </div>
 
             </form>

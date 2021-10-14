@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { callApi } from "../../apiFunc";
 import { UserContext } from "../../context/UserContext";
+import { Button, TextField } from "@material-ui/core";
 import "./Register.css";
 
 const Register = () => {
@@ -53,23 +54,27 @@ const Register = () => {
             <form onSubmit={submitHandler}>
                 <h3>Register Page</h3>
                 <div>
-                    <input
-                        placeholder="username"
+                    <TextField
+                        label="username"
+                        id="outlined-basic"
+                        variant="outlined"
                         value={username}
                         onChange={usernameHandler}
                         type="text"
                     />
                 </div>
                 <div>
-                    <input
-                        placeholder="password"
+                    <TextField
+                        label="password"
+                        id="outlined-basic"
+                        variant="outlined"
                         value={password}
                         onChange={passwordHandler}
                         type="password"
                     />
                 </div>
                 <div>
-                    <button type="submit">Submit</button>
+                    <Button color="primary" variant="contained" type="submit">Submit</Button>
                 </div>
             </form>
         </>
