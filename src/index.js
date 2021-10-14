@@ -5,22 +5,30 @@ import { UserProvider } from './context/UserContext';
 import {
     Login,
     Register,
-    UserData
+    UserData,
+    NavBar,
+    Home
 } from "./components";
 
 const App = () => {
 
     return (
         <>
-            <Route path="/users/login">
-                <Login />
-            </Route>
-            <Route path="/users/register">
-                <Register />
-            </Route>
-            <Route path="/users/me">
-                <UserData />
-            </Route>
+            <NavBar />
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/users/login">
+                        <Login />
+                    </Route>
+                    <Route path="/users/register">
+                        <Register />
+                    </Route>
+                    <Route path="/users/me">
+                        <UserData />
+                    </Route>
+                </Switch>
         </>
     )
 }
