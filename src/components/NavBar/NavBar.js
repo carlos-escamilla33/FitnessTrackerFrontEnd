@@ -25,14 +25,14 @@ const NavBar = () => {
                         FitnessTracker
                     </Typography>
                     <Button component={Link} to="/" color="inherit">Home</Button>
+                    <Button component={Link} to="/routines" color="inherit">Routines</Button>
+                    <Button component={Link} to="/activities" color="inherit">Activities</Button>
                     {
                         token.length > 1 ?
                             <Button onClick={logout} component={Link} to="/" color="inherit">Logout</Button>
                             :
                             <Button component={Link} to="/users/login" color="inherit">Login/Register</Button>
                     }
-                    <Button component={Link} to="/routines" color="inherit">Routines</Button>
-                    <Button component={Link} to="/activities" color="inherit">Activities</Button>
                 </Toolbar>
             </AppBar>
         </Box>
