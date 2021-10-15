@@ -8,7 +8,8 @@ import {
     UserData,
     NavBar,
     Home,
-    Routines
+    Routines,
+    Activities
 } from "./components";
 
 const App = () => {
@@ -31,6 +32,9 @@ const App = () => {
                     </Route>
                     <Route path="/routines">
                         <Routines />
+                    </Route>
+                    <Route path="/activities">
+                        <Activities />
                     </Route>
                 </Switch>
         </>

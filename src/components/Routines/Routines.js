@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../context/UserContext";
 import { callApi } from "../../apiFunc";
 import "./Routines.css"
 
