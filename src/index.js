@@ -7,7 +7,8 @@ import {
     Register,
     UserData,
     NavBar,
-    Home
+    Home,
+    Routines
 } from "./components";
 
 const App = () => {
@@ -27,6 +28,9 @@ const App = () => {
                     </Route>
                     <Route path="/users/me">
                         <UserData />
+                    </Route>
+                    <Route path="/routines">
+                        <Routines />
                     </Route>
                 </Switch>
         </>
