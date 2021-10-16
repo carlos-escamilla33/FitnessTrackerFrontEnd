@@ -32,7 +32,7 @@ const App = () => {
                 <Route path="/users/me">
                     <UserData />
                 </Route>
-                <Route path="users/:username/routines">
+                <Route path="/users/:username/routines">
                     <UserRoutines />
                 </Route>
                 <Route path="/routines">

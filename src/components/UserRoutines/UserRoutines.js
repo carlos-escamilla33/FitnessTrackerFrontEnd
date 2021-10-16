@@ -1,21 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { callApi } from "../../apiFunc";
 import { UserContext } from "../../context/UserContext"
 import "./UserRoutines.css";
 
 const UserRoutines = () => {
-    const { token, user } = useContext(UserContext);
+    const { token } = useContext(UserContext);
+    const params = useParams();
     const [routines, setRoutines] = useState([]);
-    // we are using a route that uses params here
-    // we want to replace part of the url with the username
+
+    console.log(`users/${params.username}/routines`)
 
     const userRoutines = async () => {
         try {
-            response = await callApi({
-                url: `/users/${user}/routines`,
+            const response = await callApi({
+                url: `/users/${params.username}/routines`,
                 token
-            })
-            if (routines) {
+            });
+            if (response) {
                 setRoutines(response);
             }
         }
@@ -30,6 +32,7 @@ const UserRoutines = () => {
 
     return (
         <>
+            <h1>My personal routines</h1>
             {
                 routines.map(routine => {
                     return (

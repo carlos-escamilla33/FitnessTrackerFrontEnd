@@ -1,6 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { callApi } from "../../apiFunc";
-import "./Routines.css"
+import {
+    Grid,
+    Container,
+    Card,
+    CardHeader,
+    CardContent,
+    Typography,
+} from "@material-ui/core";
 
 const Routines = () => {
     const [routines, setRoutines] = useState([]);
@@ -25,7 +32,7 @@ const Routines = () => {
     }, [])
 
     return (
-        <>
+        <Container>
             {
                 routines.map(routine => {
                     return (
@@ -37,7 +44,7 @@ const Routines = () => {
                     )
                 })
             }
-        </>
+        </Container>
     )
 }
 
