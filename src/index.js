@@ -10,7 +10,8 @@ import {
     Home,
     Routines,
     Activities,
-    UserRoutines
+    UserRoutines,
+    Footer
 } from "./components";
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
                     <Activities />
                 </Route>
             </Switch>
+            <Footer />
         </>
     )
 }
