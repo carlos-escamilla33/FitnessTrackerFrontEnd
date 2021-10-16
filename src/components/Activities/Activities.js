@@ -5,7 +5,7 @@ import {
     styled,
     Box,
     Paper,
-    Grid
+    FitnessCenterIcon
 } from "@material-ui/core";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -39,26 +39,21 @@ const Activites = () => {
 
     return (
         <>
-            {
-                activities.map(activity => {
-                    return (
-                        <Box sx={{ flexGrow: 1 }} key={activity.id}>
-                            <Grid container spacing={2}>
-                                <Grid item xs={6} md={8}>
-                                    <Item>
-                                        <div>
-                                            <h3> {activity.name}</h3>
-                                        </div>
-                                        <div>
-                                            {activity.description}
-                                        </div>
-                                    </Item>
-                                </Grid>
-                            </Grid>
-                        </Box>
-                    )
-                })
-            }
+            
+            <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" className="separate">
+                {
+                    activities.map(activity => {
+                        return (
+                            <Box gridColumn="span 4" key={activity.id}>
+                                <Item>
+                                    <div><h3>{activity.name}</h3></div>
+                                    {activity.description}
+                                </Item>
+                            </Box>
+                        )
+                    }) 
+                }
+            </Box>
         </>
     )
 }
