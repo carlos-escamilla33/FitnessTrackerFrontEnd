@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useHistory, Link } from "react-router-dom";
+import "./NavBar.css";
 import {
     AppBar,
     Box,
@@ -20,7 +21,7 @@ const NavBar = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar className="menuItems">
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         FitnessTracker
                     </Typography>
