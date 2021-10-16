@@ -31,15 +31,23 @@ const NavBar = () => {
                         <Typography style={{ color: '#FFBF00' }} variant="h4" component="div" sx={{ flexGrow: 1 }}>
                             FitnessTracker
                         </Typography>
-                        <Button component={Link} to="/" color="inherit">Home</Button>
-                        <Button component={Link} to="/routines" color="inherit">Routines</Button>
-                        <Button component={Link} to="/activities" color="inherit">Activities</Button>
-                        {
-                            token.length > 1 ?
-                                <Button onClick={logout} component={Link} to="/" color="inherit">Logout</Button>
-                                :
-                                <Button component={Link} to="/users/login" color="inherit">Login/Register</Button>
-                        }
+                        <div>
+                            <Button component={Link} to="/" color="inherit">Home</Button>
+                        </div>
+                        <div>
+                            <Button component={Link} to="/routines" color="inherit">Routines</Button>
+                        </div>
+                        <div>
+                            <Button component={Link} to="/activities" color="inherit">Activities</Button>
+                        </div>
+                        <div>
+                            {
+                                token.length > 1 ?
+                                    <Button onClick={logout} component={Link} to="/" color="inherit">Logout</Button>
+                                    :
+                                    <Button component={Link} to="/users/login" color="inherit">Login/Register</Button>
+                            }
+                        </div>
                     </Toolbar>
                 </Container>
             </AppBar>
