@@ -2,18 +2,14 @@ import React, { useEffect, useState } from "react";
 import { callApi } from "../../apiFunc";
 import "./Activities.css";
 import {
-    styled,
-    Box,
-    Paper,
-    FitnessCenterIcon
+    Grid,
+    Container,
+    Card,
+    CardHeader,
+    CardContent,
+    Typography
 } from "@material-ui/core";
-
-const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
+import { Notes } from "@material-ui/icons";
 
 const Activites = () => {
     const [activities, setActivities] = useState([]);
@@ -38,23 +34,28 @@ const Activites = () => {
     }, []);
 
     return (
-        <>
-            
-            <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" className="separate">
+        <Container>
+            <Grid container spacing={3}>
                 {
-                    activities.map(activity => {
-                        return (
-                            <Box gridColumn="span 4" key={activity.id}>
-                                <Item>
-                                    <div><h3>{activity.name}</h3></div>
-                                    {activity.description}
-                                </Item>
-                            </Box>
-                        )
-                    }) 
+                    activities.map(activity => (
+                        <Grid item key={activity.id} xs={12} md={6} lg={4}>
+                            <div>
+                                <Card>
+                                    <CardHeader
+                                        title={activity.name}
+                                    />
+                                    <CardContent>
+                                        <Typography variant="body2" color="textSecondary">
+                                            {activity.description}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        </Grid>
+                    ))
                 }
-            </Box>
-        </>
+            </Grid>
+        </Container>
     )
 }
 
