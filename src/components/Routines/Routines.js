@@ -10,28 +10,10 @@ import {
     CardContent,
     Typography,
     Button,
-    Box,
-    TextField
 } from "@material-ui/core";
 
 const Routines = () => {
-    const { token, user } = useContext(UserContext)
-    const [routines, setRoutines] = useState([]);
-
-    const publicRoutines = async () => {
-        try {
-            const response = await callApi({
-                url: "/routines",
-            });
-            console.log(response);
-            if (response) {
-                setRoutines(response);
-            }
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
+    const { token, user, routines, publicRoutines } = useContext(UserContext)
 
     useEffect(() => {
         publicRoutines();
@@ -43,7 +25,7 @@ const Routines = () => {
                <PostRoutine />
                 <Grid container spacing={3}>
                     {
-                        routines.map(routine => {
+                        routines.reverse().map(routine => {
                             return (
                                 <Grid item key={routine.id} xs={12} md={6} lg={4}>
                                     <div>
