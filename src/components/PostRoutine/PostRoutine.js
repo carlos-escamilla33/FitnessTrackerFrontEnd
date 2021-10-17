@@ -9,10 +9,16 @@ import {
 } from "@material-ui/core";
 
 const PostRoutine = () => {
-    const { token, publicRoutines } = useContext(UserContext);
-    const [name, setName] = useState("");
-    const [goal, setGoal] = useState("");
-    const [isPublic, setIsPublic] = useState("");
+    const {
+        token,
+        publicRoutines,
+        name,
+        setName,
+        goal,
+        setGoal,
+        isPublic,
+        setIsPublic
+    } = useContext(UserContext);
 
     const postRoutine = async () => {
         try {
@@ -61,7 +67,7 @@ const PostRoutine = () => {
         setName("");
         setGoal("");
         setIsPublic("")
-        
+
         publicRoutines();
     }
 
@@ -101,7 +107,12 @@ const PostRoutine = () => {
                                 onChange={isPublicHandler}
                                 value={isPublic}
                             /><br />
-                            <Button type="submit">Submit</Button>
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                size="small"
+                                color="primary"
+                            >Submit</Button>
                         </form>
                     </Container > : null
             }

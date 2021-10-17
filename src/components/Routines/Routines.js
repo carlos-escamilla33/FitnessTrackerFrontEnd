@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
-import { callApi } from "../../apiFunc";
 import PostRoutine from "../PostRoutine/PostRoutine";
 import {
     Grid,
@@ -13,7 +12,12 @@ import {
 } from "@material-ui/core";
 
 const Routines = () => {
-    const { token, user, routines, publicRoutines } = useContext(UserContext)
+    const {
+        token,
+        user,
+        routines,
+        publicRoutines,
+    } = useContext(UserContext);
 
     useEffect(() => {
         publicRoutines();
@@ -22,7 +26,7 @@ const Routines = () => {
     return (
         <>
             <Container>
-               <PostRoutine />
+                <PostRoutine />
                 <Grid container spacing={3}>
                     {
                         routines.reverse().map(routine => {
@@ -59,7 +63,10 @@ const Routines = () => {
                                                 {
                                                     routine.creatorName === user && token ?
                                                         <>
-                                                            <Button color="inherit">Edit</Button>
+                                                            <Button
+                                                                color="inherit"
+                                                                onClick={() => updateRoutine(routine.id)}
+                                                            >Edit</Button>
                                                             <Button color="secondary">Delete</Button>
                                                         </>
                                                         : null
