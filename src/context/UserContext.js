@@ -8,9 +8,6 @@ const UserProvider = ({ children }) => {
     const [user, setUser] = useState("");
     const [token, setToken] = useState("");
     const [routines, setRoutines] = useState([]);
-    const [name, setName] = useState("");
-    const [goal, setGoal] = useState("");
-    const [isPublic, setIsPublic] = useState("");
 
     const publicRoutines = async () => {
         try {
@@ -36,13 +33,7 @@ const UserProvider = ({ children }) => {
                 setToken,
                 routines,
                 setRoutines,
-                publicRoutines,
-                name,
-                setName,
-                goal,
-                setGoal,
-                isPublic,
-                setIsPublic
+                publicRoutines
             }}
         >{children}</UserContext.Provider>
     )
