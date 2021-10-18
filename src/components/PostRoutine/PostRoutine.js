@@ -5,14 +5,16 @@ import {
     Container,
     Typography,
     TextField,
-    Button
+    Button,
+    Switch,
+    FormControlLabel
 } from "@material-ui/core";
 
 const PostRoutine = () => {
     const { token, publicRoutines } = useContext(UserContext);
     const [name, setName] = useState("");
     const [goal, setGoal] = useState("");
-    const [isPublic, setIsPublic] = useState("");
+    const [isPublic, setIsPublic] = useState(true);
 
     const postRoutine = async () => {
         try {
@@ -44,8 +46,8 @@ const PostRoutine = () => {
     }
 
     const isPublicHandler = (event) => {
-        setIsPublic(event.target.value);
-    }
+        setIsPublic(event.target.checked);
+    };
 
     useEffect(() => {
         if (submitHandler) {
@@ -92,15 +94,23 @@ const PostRoutine = () => {
                                 onChange={goalHandler}
                                 value={goal}
                             /><br />
-
-                            <TextField
-                                label={'isPublic'}
-                                id="margin-normal"
-                                margin="normal"
-                                onChange={isPublicHandler}
-                                value={isPublic}
-                            /><br />
-                            <Button type="submit">Submit</Button>
+                            <FormControlLabel
+                                label="Make Routine Public"
+                                control={
+                                    <Switch
+                                        checked={isPublic}
+                                        onChange={isPublicHandler}
+                                        name="public"
+                                        inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                    />
+                                }
+                            />
+                            <div>
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    color="primary"
+                                >Submit</Button></div>
                         </form>
                     </Container > : null
             }
