@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useContext, useEffect, useState } from "react";
+=======
+import React, { useState, useContext, useEffect } from "react";
+>>>>>>> df2c2853be184c98e726655c33921885436e1258
 import { UserContext } from "../../context/UserContext";
 import { callApi } from "../../apiFunc";
 import {
@@ -53,6 +57,15 @@ const PostRoutine = () => {
         setIsPublic(event.target.value);
     }
 
+<<<<<<< HEAD
+=======
+    useEffect(() => {
+        if (submitHandler) {
+            publicRoutines();
+        }
+    }, [])
+
+>>>>>>> df2c2853be184c98e726655c33921885436e1258
     const submitHandler = (event) => {
         event.preventDefault();
 
@@ -63,7 +76,11 @@ const PostRoutine = () => {
         setIsPublic("")
 
         publicRoutines();
+<<<<<<< HEAD
     };
+=======
+    }
+>>>>>>> df2c2853be184c98e726655c33921885436e1258
 
     return (
         <>

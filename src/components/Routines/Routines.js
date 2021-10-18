@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
 import PostRoutine from "../PostRoutine/PostRoutine";
+<<<<<<< HEAD
 import { callApi } from "../../apiFunc";
 import RoutineActions from "../RoutineActions/RoutineActions";
 import {
@@ -15,12 +16,29 @@ import {
 
 const Routines = () => {
     const { token, user, routines } = useContext(UserContext)
+=======
+import RoutineActions from "../RoutineActions/RoutineActions";
+import {
+    Grid,
+    Container
+} from "@material-ui/core";
+
+const Routines = () => {
+    const {
+        publicRoutines,
+    } = useContext(UserContext);
+
+    useEffect(() => {
+        publicRoutines();
+    }, [])
+>>>>>>> df2c2853be184c98e726655c33921885436e1258
 
     return (
         <>
             <Container>
                 <PostRoutine />
                 <Grid container spacing={3}>
+<<<<<<< HEAD
                     {
                         routines.reverse().map(routine => {
                             return (
@@ -66,6 +84,9 @@ const Routines = () => {
                             )
                         })
                     }
+=======
+                    <RoutineActions />
+>>>>>>> df2c2853be184c98e726655c33921885436e1258
                 </Grid>
             </Container >
         </>

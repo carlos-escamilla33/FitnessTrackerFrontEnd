@@ -27,10 +27,6 @@ const UserProvider = ({ children }) => {
         }
     }
 
-    useEffect(() => {
-        publicRoutines();
-    }, [routines]);
-
     return (
         <UserContext.Provider
             value={{
