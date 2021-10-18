@@ -1,49 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
-import { callApi } from "../../apiFunc";
 import PostRoutine from "../PostRoutine/PostRoutine";
+import { callApi } from "../../apiFunc";
+import RoutineActions from "../RoutineActions/RoutineActions";
 import {
-    Grid,
     Container,
+    Typography,
+    Grid,
     Card,
     CardHeader,
     CardContent,
-    Typography,
-    Button,
-    Box,
-    TextField
+    Button
 } from "@material-ui/core";
 
 const Routines = () => {
-    const { token, user } = useContext(UserContext)
-    const [routines, setRoutines] = useState([]);
-
-    const publicRoutines = async () => {
-        try {
-            const response = await callApi({
-                url: "/routines",
-            });
-            console.log(response);
-            if (response) {
-                setRoutines(response);
-            }
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        publicRoutines();
-    }, [])
+    const { token, user, routines } = useContext(UserContext)
 
     return (
         <>
             <Container>
-               <PostRoutine />
+                <PostRoutine />
                 <Grid container spacing={3}>
                     {
-                        routines.map(routine => {
+                        routines.reverse().map(routine => {
                             return (
                                 <Grid item key={routine.id} xs={12} md={6} lg={4}>
                                     <div>
@@ -76,10 +55,7 @@ const Routines = () => {
                                             >
                                                 {
                                                     routine.creatorName === user && token ?
-                                                        <>
-                                                            <Button color="inherit">Edit</Button>
-                                                            <Button color="secondary">Delete</Button>
-                                                        </>
+                                                        <RoutineActions />
                                                         : null
                                                 }
                                                 <Button color="primary">View Activities</Button>
