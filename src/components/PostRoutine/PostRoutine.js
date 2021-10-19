@@ -28,6 +28,7 @@ const PostRoutine = () => {
                     isPublic
                 }
             })
+            await publicRoutines();
             if (response) {
                 console.log(response)
             }
@@ -46,14 +47,15 @@ const PostRoutine = () => {
     }
 
     const isPublicHandler = (event) => {
+        console.log(event.target.checked)
         setIsPublic(event.target.checked);
     };
 
-    useEffect(() => {
-        if (submitHandler) {
-            publicRoutines();
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (submitHandler) {
+    //         publicRoutines();
+    //     }
+    // }, [])
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -63,8 +65,6 @@ const PostRoutine = () => {
         setName("");
         setGoal("");
         setIsPublic("")
-
-        publicRoutines();
     }
     return (
         <>
