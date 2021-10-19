@@ -15,14 +15,12 @@ import {
 } from "@material-ui/core";
 
 const Routines = () => {
-    const { token, user, routines, publicRoutines } = useContext(UserContext);
-    // console.log("--->",Object.keys(routines).sort())
     return (
         <>
             <Container>
                 <PostRoutine />
                 <Grid container spacing={3}>
-                   <RoutineActions />
+                    <RoutineActions />
                 </Grid>
             </Container >
         </>
