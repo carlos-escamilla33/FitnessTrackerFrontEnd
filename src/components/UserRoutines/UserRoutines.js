@@ -15,6 +15,7 @@ const UserRoutines = () => {
                 url: `/users/${username}/routines`,
                 token
             })
+            console.log(response)
             if (response) {
                 setRoutines(response);
             }
@@ -34,7 +35,7 @@ const UserRoutines = () => {
             {
                 routines.map(routine => {
                     return (
-                        <div>
+                        <div key={routine.id}>
                             <h3>{routine.creatorName}</h3>
                             <p>{routine.name}</p>
                             <p>{routine.goal}</p>

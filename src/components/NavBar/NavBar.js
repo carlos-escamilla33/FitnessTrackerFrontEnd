@@ -12,11 +12,14 @@ import {
 } from "@material-ui/core";
 
 const NavBar = () => {
-    const { token, setToken, setUser } = useContext(UserContext);
+    const { token, setToken, setUser, user } = useContext(UserContext);
+    const history = useHistory();
 
     const style = {
         background: "black"
     }
+
+    const myActivities = `/users/${user}/routines`;
 
     const logout = () => {
         setToken("");
@@ -37,6 +40,12 @@ const NavBar = () => {
                         <div>
                             <Button component={Link} to="/routines" color="inherit">Routines</Button>
                         </div>
+                        {
+                            token ?
+                                <div>
+                                    <Button component={Link} to={myActivities} color="inherit">My Activities</Button>
+                                </div> : null
+                        }
                         <div>
                             <Button component={Link} to="/activities" color="inherit">Activities</Button>
                         </div>
