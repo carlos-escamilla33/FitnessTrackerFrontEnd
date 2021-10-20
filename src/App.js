@@ -41,7 +41,6 @@ const App = () => {
                     <Activities />
                 </Route>
             </Switch>
-            <Footer />
         </>
     )
 }

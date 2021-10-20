@@ -1,25 +1,25 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import { useHistory, Link } from "react-router-dom";
-import "./NavBar.css";
+import { Link } from "react-router-dom";
+import useStyles from "./stylesNavBar.js";
 import {
     AppBar,
-    Box,
+    CssBaseline,
     Toolbar,
     Typography,
     Button,
-    Container
+    Container,
 } from "@material-ui/core";
 
 const NavBar = () => {
     const { token, setToken, setUser, user } = useContext(UserContext);
-    const history = useHistory();
+    const classes = useStyles();
 
     const style = {
         background: "black"
     }
 
-    const myActivities = `/users/${user}/routines`;
+    const myRoutines = `/users/${user}/routines`;
 
     const logout = () => {
         setToken("");
@@ -27,40 +27,26 @@ const NavBar = () => {
     }
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar style={style} position="static">
-                <Container maxWidth="lg">
-                    <Toolbar className="menuItems">
-                        <Typography style={{ color: '#FFBF00' }} variant="h4" component="div" sx={{ flexGrow: 1 }}>
-                            FitnessTracker
-                        </Typography>
-                        <div>
-                            <Button component={Link} to="/" color="inherit">Home</Button>
-                        </div>
-                        <div>
-                            <Button component={Link} to="/routines" color="inherit">Routines</Button>
-                        </div>
-                        {
-                            token ?
-                                <div>
-                                    <Button component={Link} to={myActivities} color="inherit">My Activities</Button>
-                                </div> : null
-                        }
-                        <div>
-                            <Button component={Link} to="/activities" color="inherit">Activities</Button>
-                        </div>
-                        <div>
-                            {
-                                token.length > 1 ?
-                                    <Button onClick={logout} component={Link} to="/" color="inherit">Logout</Button>
-                                    :
-                                    <Button component={Link} to="/users/login" color="inherit">Login/Register</Button>
-                            }
-                        </div>
-                    </Toolbar>
-                </Container>
-            </AppBar>
-        </Box>
+        <AppBar position="static" className={classes.appBar}>
+            <CssBaseline />
+            <Toolbar>
+                <Typography variant="h4" className={classes.logo}>
+                    FitnessTracker
+                </Typography>
+                <div>
+                    <Link to="/" className={classes.link}>Home</Link>
+                    <Link to="/routines" className={classes.link}>Routines</Link>
+                    {
+                        token.length > 1 ? <Link to={myRoutines} className={classes.link}>My Routines</Link> : null
+                    }
+                    <Link to="/activities" className={classes.link}>Activities</Link>
+                    {
+                        token.length > 1 ? <Link onClick={logout} to="/" className={classes.link}>Logout</Link>
+                            : <Link to="/users/login" className={classes.link}>Login/Register</Link>
+                    }
+                </div>
+            </Toolbar>
+        </AppBar>
     )
 }
 

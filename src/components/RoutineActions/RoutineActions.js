@@ -22,7 +22,7 @@ const RoutineActions = () => {
         routines,
         user,
         publicRoutines
-    } = useContext(UserContext)
+    } = useContext(UserContext);
 
     const updateRoutine = async (routineId) => {
         try {
@@ -62,6 +62,10 @@ const RoutineActions = () => {
         }
     }
 
+    useEffect(() => {
+        publicRoutines();
+    }, []);
+
     return (
         <>
             {
@@ -99,15 +103,15 @@ const RoutineActions = () => {
                                         {
                                             routine.creatorName === user && token ?
                                                 <>
-                                                      <Button
-                                                            color="inherit"
-                                                            size="small"
-                                                        >Edit</Button>
-                                                        <Button
-                                                            color="secondary"
-                                                            size="small"
-                                                            onClick={() => deleteRoutine(routine.id)}
-                                                        >Delete</Button>
+                                                    <Button
+                                                        color="inherit"
+                                                        size="small"
+                                                    >Edit</Button>
+                                                    <Button
+                                                        color="secondary"
+                                                        size="small"
+                                                        onClick={() => deleteRoutine(routine.id)}
+                                                    >Delete</Button>
                                                 </>
                                                 : null
                                         }
