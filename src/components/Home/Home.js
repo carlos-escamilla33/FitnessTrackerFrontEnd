@@ -1,21 +1,31 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import { useHistory } from "react-router-dom";
-import workout from '../../media/workoutCouple.jpeg';
-import "./Home.css"
+import { useStyles } from "./StylesHome"
+import { CssBaseline, useMediaQuery, useTheme, ImageList, ImageListItem } from "@material-ui/core";
 
 const Home = () => {
     const { token, user } = useContext(UserContext);
-    const history = useHistory();
+    const theme = useTheme();
+    const mobile = useMediaQuery(theme.breakpoints.down("md"));
+    const classes = useStyles();
 
     console.log("------>TOKEN", token)
     console.log("------>USER", user);
 
     return (
-        <div className="imgbox">
-            <img src={workout} className="center-fit" />
+        <div className={classes.img}>
+            <CssBaseline />
         </div>
     )
 }
 
 export default Home;
+
+
+// console.log(item.img)
+// <ImageListItem key={item.img}>
+//     <img
+//     src={`${item.img}`}
+//     loading="lazy"
+//      />
+// </ImageListItem>
