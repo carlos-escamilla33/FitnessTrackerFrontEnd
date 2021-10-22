@@ -12,9 +12,21 @@ import {
 } from "@material-ui/core";
 
 const DrawerMenu = () => {
-    const { user, token } = useContext(UserContext);
+    const { user, token, setToken, setUser } = useContext(UserContext);
     const [openDrawer, setOpenDrawer] = useState(false);
     const classes = useStyles();
+
+    const logOut = () => {
+        setToken("");
+        setUser("");
+    }
+
+    const closeLogoutDrawer = (event) => {
+        event.preventDefault();
+
+        logOut();
+        setOpenDrawer(false);
+    }
 
     const updateDrawer = (event) => {
         event.preventDefault();
@@ -51,7 +63,7 @@ const DrawerMenu = () => {
                     </ListItem>
                     {
                         token.length > 1 ?
-                            <ListItem onClick={updateDrawer}>
+                            <ListItem onClick={closeLogoutDrawer}>
                                 <ListItemText>
                                     <Link className={classes.link} to="/">Logout</Link>
                                 </ListItemText>
