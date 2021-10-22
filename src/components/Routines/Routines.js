@@ -5,13 +5,6 @@ import RoutineActions from "../RoutineActions/RoutineActions";
 import {
     Grid,
     Container,
-    Card,
-    CardHeader,
-    CardContent,
-    Typography,
-    Button,
-    Box,
-    TextField
 } from "@material-ui/core";
 
 const Routines = () => {

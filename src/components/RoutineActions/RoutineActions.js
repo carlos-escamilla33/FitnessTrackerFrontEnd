@@ -12,7 +12,6 @@ import {
 } from "@material-ui/core";
 
 const RoutineActions = () => {
-    // goal is to make a new form route and then update it down below
     const {
         name,
         goal,

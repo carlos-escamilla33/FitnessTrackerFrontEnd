@@ -8,6 +8,7 @@ const UserProvider = ({ children }) => {
     const [user, setUser] = useState("");
     const [token, setToken] = useState("");
     const [routines, setRoutines] = useState([]);
+    const [activities, setActivities] = useState([]);
 
     const publicRoutines = async () => {
         try {
@@ -24,9 +25,20 @@ const UserProvider = ({ children }) => {
         }
     }
 
-    // useEffect(() => {
-    //     publicRoutines();
-    // }, []);
+    const allActivities = async () => {
+        try {
+            const response = await callApi({
+                url: "/activities",
+            })
+            console.log(response);
+            if (response) {
+                setActivities(response);
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <UserContext.Provider
@@ -37,7 +49,10 @@ const UserProvider = ({ children }) => {
                 setToken,
                 routines,
                 setRoutines,
-                publicRoutines
+                publicRoutines,
+                activities,
+                setActivities,
+                allActivities
             }}
         >{children}</UserContext.Provider>
     )
