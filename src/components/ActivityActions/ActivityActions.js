@@ -16,7 +16,7 @@ const ActivityActions = () => {
     return (
         <Grid container spacing={3}>
             {
-                activities.map(activity => (
+                activities.reverse().map(activity => (
                     <Grid item key={activity.id} xs={12} md={6} lg={4}>
                         <div>
                             <Card>

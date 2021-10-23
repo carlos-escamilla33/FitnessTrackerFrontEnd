@@ -1,14 +1,36 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Container, Typography, TextField, Button } from "@material-ui/core"
+import { callApi } from "../../apiFunc";
 
 const PostActivity = () => {
-    const { token } = useContext(UserContext);
-    const [activityName, setActivityName] = useState("");
+    const { token, allActivities } = useContext(UserContext);
+    const [name, setName] = useState("");
     const [description, setDescription] = useState("");
 
+    const postActivity = async () => {
+        try {
+            const response = await callApi({
+                url: "/activities",
+                method: "POST",
+                token,
+                body: {
+                    name,
+                    description
+                }
+            })
+            await allActivities();
+            if (response) {
+                console.log(response);
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
     const activityNameHandler = (event) => {
-        setActivityName(event.target.value)
+        setName(event.target.value)
     }
 
     const descriptionHandler = (event) => {
@@ -18,13 +40,11 @@ const PostActivity = () => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        setActivity("");
+        postActivity();
+
+        setName("");
         setDescription("");
     }
-
-    // useEffect(() => {
-    //     allActivities();
-    // }, [])
 
     return (
         <>
@@ -44,7 +64,7 @@ const PostActivity = () => {
                                 id="margin-normal"
                                 margin="normal"
                                 onChange={activityNameHandler}
-                                value={activityName}
+                                value={name}
                             /><br />
 
                             <TextField
