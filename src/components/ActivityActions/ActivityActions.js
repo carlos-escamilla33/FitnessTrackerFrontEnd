@@ -1,18 +1,23 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, } from "react";
 import { UserContext } from "../../context/UserContext";
 import {
     Grid,
     Card,
     CardHeader,
     CardContent,
-    Typography
+    Typography,
+    Button
 } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const ActivityActions = () => {
-    const { activities, allActivities } = useContext(UserContext);
+    const { activities, allActivities, token } = useContext(UserContext);
+    const history = useHistory();
+
     useEffect(() => {
         allActivities()
     }, []);
+
     return (
         <Grid container spacing={3}>
             {
@@ -28,6 +33,16 @@ const ActivityActions = () => {
                                         {activity.description}
                                     </Typography>
                                 </CardContent>
+                                {
+                                    token ?
+                                        <Button
+                                            color="inherit"
+                                            size="small"
+                                            onClick={() => history.push(`/activities/${activity.id}`)}
+                                        >Edit</Button>
+                                        :
+                                        null
+                                }
                             </Card>
                         </div>
                     </Grid>
