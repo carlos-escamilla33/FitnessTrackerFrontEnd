@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { callApi } from "../../apiFunc";
-import { useHistory, Link, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext.js";
-import { Button, TextField } from "@material-ui/core";
+import useStyles from "./StylesLoginRegister";
+import { Button, Container, TextField, Link } from "@material-ui/core";
 
 const LoginRegister = () => {
     const { setToken, setUser } = useContext(UserContext);
@@ -10,6 +11,7 @@ const LoginRegister = () => {
     const [password, setPassword] = useState("");
     const history = useHistory();
     const { method } = useParams();
+    const classes = useStyles();
 
     const loginRegisterUser = async () => {
         try {
@@ -58,11 +60,11 @@ const LoginRegister = () => {
 
 
     return (
-        <>
+        <Container>
             <form onSubmit={onSubmitHandler}>
 
                 {
-                  method === "login" ? <h1>Login</h1> : <h1>Register</h1>
+                    method === "login" ? <h1>Login</h1> : <h1>Register</h1>
                 }
                 <div>
                     <TextField
@@ -92,17 +94,22 @@ const LoginRegister = () => {
                 {
                     method === "login" ?
                         <div>
-                            <h3>Dont have an account? Register down below</h3>
-                            <Button
-                                component={Link} to="/users/register"
-                                color="primary"
-                                variant="contained"
-                                type="submit">Register</Button>
-                        </div> : null
+                            <Link 
+                            underline="hover"
+                            className={classes.link}
+                            onClick={(event) => {
+                                event.preventDefault()
+                                history.push("/users/register")
+                            }}
+                            >
+                                {'Dont have an account? Register here'}
+                            </Link>
+                        </div>
+                        : null
                 }
 
             </form>
-        </>
+        </Container>
     )
 }
 
