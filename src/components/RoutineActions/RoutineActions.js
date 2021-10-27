@@ -14,11 +14,7 @@ import {
 
 const RoutineActions = () => {
     const {
-        name,
-        goal,
-        isPublic,
         token,
-        setRoutines,
         routines,
         user,
         publicRoutines

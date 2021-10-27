@@ -39,11 +39,18 @@ const Activites = () => {
                                     </CardContent>
                                     {
                                         token ?
-                                            <Button
+                                            <>
+                                                <Button
+                                                    color="inherit"
+                                                    size="small"
+                                                    onClick={() => history.push(`/activities/${activity.id}`)}
+                                                >Edit</Button>
+                                                <Button
                                                 color="inherit"
                                                 size="small"
-                                                onClick={() => history.push(`/activities/${activity.id}`)}
-                                            >Edit</Button>
+                                                onClick={() => history.push(`/activity/${activity.id}/routines`)}
+                                                >routines that feature activity</Button>
+                                            </>
                                             :
                                             null
                                     }
