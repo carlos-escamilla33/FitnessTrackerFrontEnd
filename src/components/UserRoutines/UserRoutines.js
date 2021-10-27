@@ -1,20 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { callApi } from "../../apiFunc";
 import { UserContext } from "../../context/UserContext"
 import "./UserRoutines.css";
 
 const UserRoutines = () => {
-    const { token } = useContext(UserContext);
-    const { username } = useParams();
+    const { token, user } = useContext(UserContext);
     const [routines, setRoutines] = useState([]);
 
     const userRoutines = async () => {
         try {
             const response = await callApi({
-                url: `/users/${username}/routines`,
+                url: `/users/${user}/routines`,
                 token
-            })
+            });
             console.log(response)
             if (response) {
                 setRoutines(response);
@@ -46,7 +44,6 @@ const UserRoutines = () => {
             }
         </>
     )
-
 }
 
 export default UserRoutines;

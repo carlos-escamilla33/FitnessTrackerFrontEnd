@@ -24,7 +24,7 @@ const Login = () => {
             })
             console.log(response);
             if (response) {
-                setUser(username);
+                setUser(response.user.username);
                 setToken(response.token)
                 if (response.token) {
                     history.push("/users/me");
