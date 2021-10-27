@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { callApi } from "../../apiFunc";
 import { UserContext } from "../../context/UserContext";
 import {
@@ -22,27 +23,7 @@ const RoutineActions = () => {
         user,
         publicRoutines
     } = useContext(UserContext);
-
-    const updateRoutine = async (routineId) => {
-        try {
-            const response = await callApi({
-                url: `/routines/${routineId}`,
-                method: "PATCH",
-                body: {
-                    name,
-                    goal,
-                    isPublic
-                }
-            })
-            if (response) {
-                console.log(response)
-            }
-        }
-        catch (error) {
-            console.log(error);
-        }
-
-    }
+    const history = useHistory();
 
     const deleteRoutine = async (routineId) => {
         try {
@@ -105,6 +86,7 @@ const RoutineActions = () => {
                                                     <Button
                                                         color="inherit"
                                                         size="small"
+                                                        onClick={() => history.push(`/routines/${routine.id}`)}
                                                     >Edit</Button>
                                                     <Button
                                                         color="secondary"

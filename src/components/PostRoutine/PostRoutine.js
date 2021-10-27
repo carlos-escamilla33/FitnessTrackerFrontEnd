@@ -14,7 +14,7 @@ const PostRoutine = () => {
     const { token, publicRoutines } = useContext(UserContext);
     const [name, setName] = useState("");
     const [goal, setGoal] = useState("");
-    const [isPublic, setIsPublic] = useState(true);
+    const [isPublic, setIsPublic] = useState(false);
 
     const postRoutine = async () => {
         try {
@@ -50,12 +50,6 @@ const PostRoutine = () => {
         console.log(event.target.checked)
         setIsPublic(event.target.checked);
     };
-
-    // useEffect(() => {
-    //     if (submitHandler) {
-    //         publicRoutines();
-    //     }
-    // }, [])
 
     const submitHandler = (event) => {
         event.preventDefault();
