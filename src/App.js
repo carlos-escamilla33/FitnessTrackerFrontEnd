@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Route, Switch } from "react-router-dom";
 import {
-    Login,
-    Register,
+    LoginRegister,
     UserData,
     NavBar,
     Home,
@@ -25,17 +24,14 @@ const App = () => {
                 <Route exact path="/">
                     <Home />
                 </Route>
-                <Route path="/users/login">
-                    <Login />
-                </Route>
-                <Route path="/users/register">
-                    <Register />
-                </Route>
-                <Route path="/users/me">
+                <Route exact path="/users/me">
                     <UserData />
                 </Route>
-                <Route path="/users/:username/routines">
+                <Route exact path="/users/:username/routines">
                     <UserRoutines />
+                </Route>
+                <Route path="/users/:method">
+                    <LoginRegister />
                 </Route>
                 <Route exact path="/routines">
                     <Routines />

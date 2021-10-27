@@ -1,21 +1,21 @@
 import React, { useState, useContext } from "react";
 import { callApi } from "../../apiFunc";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, Link, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext.js";
 import { Button, TextField } from "@material-ui/core";
-import "./Login.css";
 
-const Login = () => {
+const LoginRegister = () => {
     const { setToken, setUser } = useContext(UserContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
+    const { method } = useParams();
 
-    const loginUser = async () => {
+    const loginRegisterUser = async () => {
         try {
 
             const response = await callApi({
-                url: "/users/login",
+                url: `/users/${method}`,
                 method: "POST",
                 body: {
                     username,
@@ -23,12 +23,14 @@ const Login = () => {
                 }
             })
             console.log(response);
-            if (response) {
+            if (response.message === "you're logged in!") {
                 setUser(response.user.username);
                 setToken(response.token)
                 if (response.token) {
                     history.push("/users/me");
                 }
+            } else if (response.message === "you're signed up!") {
+                history.push("/users/login");
             }
 
         }
@@ -48,7 +50,7 @@ const Login = () => {
     const onSubmitHandler = (event) => {
         event.preventDefault();
 
-        loginUser();
+        loginRegisterUser();
 
         setUsername("");
         setPassword("");
@@ -59,8 +61,9 @@ const Login = () => {
         <>
             <form onSubmit={onSubmitHandler}>
 
-                <h1>Login</h1>
-
+                {
+                  method === "login" ? <h1>Login</h1> : <h1>Register</h1>
+                }
                 <div>
                     <TextField
                         label="username"
@@ -86,19 +89,21 @@ const Login = () => {
                 <div>
                     <Button color="primary" variant="contained" type="submit">Submit</Button>
                 </div>
-
-                <div>
-                    <h3>Dont have an account? Register down below</h3>
-                    <Button 
-                    component={Link} to="/users/register" 
-                    color="primary" 
-                    variant="contained" 
-                    type="submit">Register</Button>
-                </div>
+                {
+                    method === "login" ?
+                        <div>
+                            <h3>Dont have an account? Register down below</h3>
+                            <Button
+                                component={Link} to="/users/register"
+                                color="primary"
+                                variant="contained"
+                                type="submit">Register</Button>
+                        </div> : null
+                }
 
             </form>
         </>
     )
 }
 
-export default Login;
+export default LoginRegister;

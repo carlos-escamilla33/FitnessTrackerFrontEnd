@@ -26,12 +26,18 @@ const ActivityRoutines = () => {
 
     useEffect(() => {
         activityRoutines();
-    })
+    });
 
     return (
         <>
             <h1>These routines match the activityId</h1>
-
+            {
+                routines.map(routine => (
+                    <div key={routine.id}>
+                        <h3>{routine.name}</h3>
+                    </div>
+                ))
+            }
         </>
     )
 }
