@@ -21,8 +21,8 @@ const Register = () => {
             });
             console.log(response)
             if (response) {
-                setToken(response.data.token)
-                if (response.data.token) {
+                setToken(response.token)
+                if (response.token) {
                     setToken("");
                 }
             }

@@ -8,8 +8,8 @@ const UpdateActivity = () => {
     const { allActivities, activities, token } = useContext(UserContext);
     const { activityId } = useParams();
     const activity = activities.find(activity => activity.id === Number(activityId));
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
+    const [name, setName] = useState(`${activity.name}`);
+    const [description, setDescription] = useState(`${activity.description}`);
     const history = useHistory();
 
     const updateActivity = async () => {
