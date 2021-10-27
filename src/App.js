@@ -11,7 +11,8 @@ import {
     UserRoutines,
     Footer,
     UpdateActivity,
-    UpdateRoutine
+    UpdateRoutine,
+    ActivityRoutines
 } from "./components";
 
 
@@ -39,14 +40,17 @@ const App = () => {
                 <Route exact path="/routines">
                     <Routines />
                 </Route>
-                <Route path="/routines/:routineId">
+                <Route exact path="/routines/:routineId">
                     <UpdateRoutine />
                 </Route>
                 <Route exact path="/activities">
                     <Activities />
                 </Route>
-                <Route path="/activities/:activityId">
+                <Route exact path="/activities/:activityId">
                     <UpdateActivity />
+                </Route>
+                <Route exact path="/activity/:activityId/routines">
+                    <ActivityRoutines />
                 </Route>
             </Switch>
         </>

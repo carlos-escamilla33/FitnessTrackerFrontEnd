@@ -45,15 +45,15 @@ const Activites = () => {
                                                     size="small"
                                                     onClick={() => history.push(`/activities/${activity.id}`)}
                                                 >Edit</Button>
-                                                <Button
-                                                color="inherit"
-                                                size="small"
-                                                onClick={() => history.push(`/activity/${activity.id}/routines`)}
-                                                >routines that feature activity</Button>
                                             </>
                                             :
                                             null
                                     }
+                                    <Button
+                                        color="inherit"
+                                        size="small"
+                                        onClick={() => history.push(`/activity/${activity.id}/routines`)}
+                                    >routines that feature activity</Button>
                                 </Card>
                             </div>
                         </Grid>
