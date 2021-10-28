@@ -61,10 +61,17 @@ const LoginRegister = () => {
 
     return (
         <Container className={classes.container}>
-            <form onSubmit={onSubmitHandler}>
+            <form onSubmit={onSubmitHandler} className={classes.form}>
 
                 {
-                    method === "login" ? <h1>Login</h1> : <h1>Register</h1>
+                    method === "login" ?
+                        <div className={classes.title}>
+                            <h1>Login</h1>
+                        </div>
+                        :
+                        <div className={classes.title}>
+                            <h1>Register</h1>
+                        </div>
                 }
                 <div>
                     <TextField

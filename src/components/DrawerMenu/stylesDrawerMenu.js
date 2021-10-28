@@ -1,14 +1,14 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     paper: {
-        background: "black",
+        background: "white",
     },
     link: {
         textDecoration: "none",
-        color: 'white',
-        fontSize: "20px",
+        color: 'black',
+        fontSize: "30px",
         "&:hover": {
             color: "#FFBF00",
         }

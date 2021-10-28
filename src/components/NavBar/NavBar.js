@@ -27,7 +27,7 @@ const NavBar = () => {
         <AppBar position="static" className={classes.appBar}>
             <CssBaseline />
             <Toolbar>
-                <Typography variant="h4" className={classes.logo}>
+                <Typography variant="h4" className={classes.logo} component={Link} to={"/"}>
                     FitnessTracker
                 </Typography>
                 {

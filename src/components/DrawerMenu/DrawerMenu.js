@@ -8,7 +8,8 @@ import {
     List,
     ListItem,
     ListItemText,
-    IconButton
+    IconButton,
+    Divider
 } from "@material-ui/core";
 
 const DrawerMenu = () => {
@@ -43,11 +44,13 @@ const DrawerMenu = () => {
                             <Link className={classes.link} to="/">Home</Link>
                         </ListItemText>
                     </ListItem>
+                    <Divider />
                     <ListItem onClick={updateDrawer}>
                         <ListItemText>
                             <Link className={classes.link} to="/routines">Routines</Link>
                         </ListItemText>
                     </ListItem>
+                    <Divider />
                     {
                         token.length > 1 ?
                             <ListItem onClick={updateDrawer}>
@@ -61,19 +64,25 @@ const DrawerMenu = () => {
                             <Link className={classes.link} to="/activities">Activities</Link>
                         </ListItemText>
                     </ListItem>
+                    <Divider />
                     {
                         token.length > 1 ?
+                            <>
                             <ListItem onClick={closeLogoutDrawer}>
                                 <ListItemText>
                                     <Link className={classes.link} to="/">Logout</Link>
                                 </ListItemText>
                             </ListItem>
+                            <Divider />
+                            </>
                             :
+                            <>
                             <ListItem onClick={updateDrawer}>
                                 <ListItemText>
                                     <Link className={classes.link} to="/users/login">Login/Register</Link>
                                 </ListItemText>
                             </ListItem>
+                            </>
                     }
                 </List>
             </Drawer>

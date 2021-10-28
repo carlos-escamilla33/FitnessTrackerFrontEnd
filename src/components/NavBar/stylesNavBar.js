@@ -7,12 +7,13 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
     },
     appBar: {
-        background: "black",
+        backgroundColor: "black"
     },
     logo: {
         flexGrow: "1",
         cursor: "pointer",
-        color: '#FFBF00',
+        color: 'white',
+        textDecoration: "none"
     },
     link: {
         textDecoration: "none",
