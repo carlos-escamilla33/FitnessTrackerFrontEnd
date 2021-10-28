@@ -60,7 +60,7 @@ const LoginRegister = () => {
 
 
     return (
-        <Container>
+        <Container className={classes.container}>
             <form onSubmit={onSubmitHandler}>
 
                 {
@@ -69,43 +69,61 @@ const LoginRegister = () => {
                 <div>
                     <TextField
                         label="username"
+                        required={true}
+                        fullWidth={true}
                         id="outlined-basic"
                         variant="outlined"
                         value={username}
+                        inputProps={{ minLength: 8 }}
                         onChange={usernameHandler}
                         type="text"
                     />
                 </div>
 
-                <div>
+                <div className={classes.topSpacing}>
                     <TextField
                         label="password"
+                        required={true}
+                        fullWidth={true}
                         id="outlined-basic"
                         variant="outlined"
                         value={password}
+                        inputProps={{ minLength: 8 }}
                         onChange={passwordHandler}
                         type="password"
                     />
                 </div>
 
-                <div>
-                    <Button color="primary" variant="contained" type="submit">Submit</Button>
+                <div className={classes.topSpacing}>
+                    <Button fullWidth={true} color="primary" variant="contained" type="submit">Submit</Button>
                 </div>
                 {
                     method === "login" ?
-                        <div>
-                            <Link 
-                            underline="hover"
-                            className={classes.link}
-                            onClick={(event) => {
-                                event.preventDefault()
-                                history.push("/users/register")
-                            }}
+                        <div className={classes.topSpacing}>
+                            <Link
+                                underline="hover"
+                                className={classes.link}
+                                onClick={(event) => {
+                                    event.preventDefault()
+                                    history.push("/users/register")
+                                }}
                             >
                                 {'Dont have an account? Register here'}
                             </Link>
                         </div>
-                        : null
+                        :
+                        <div className={classes.topSpacing}>
+                            <Link
+                                underline="hover"
+                                className={classes.link}
+                                onClick={(event) => {
+                                    event.preventDefault()
+                                    history.push("/users/login")
+                                }}
+                            >
+                                {'Already registered? Login here'}
+                            </Link>
+                        </div>
                 }
 
             </form>
