@@ -11,7 +11,8 @@ const Home = () => {
     console.log("------>USER", user);
 
     return (
-        <div className={classes.img}>
+        <div className={classes.container}>
+            <div className={classes.img} />
             <CssBaseline />
         </div>
     )
