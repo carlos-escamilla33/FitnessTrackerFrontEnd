@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <div className={classes.container}>
             <div className={classes.img} />
-            <CssBaseline />
+            <h3 className={classes.text}>Start Your Ultimate Workout Plan Today!</h3>
         </div>
     )
 }

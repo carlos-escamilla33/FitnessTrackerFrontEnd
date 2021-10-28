@@ -10,10 +10,14 @@ const useStyles = makeStyles(() => ({
     },
     container: {
         position: "relative",
-        textAlign: "center"
     },
     text: {
-        position: "absolute"
+        position: "absolute",
+        textAlign: "center",
+        top: '20%',
+        left: '25%',
+        fontSize: "50px",
+        color: "white"
     }
 }));
 
