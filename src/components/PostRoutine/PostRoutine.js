@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
-import { callApi } from "../../apiFunc";
+import { callApi } from "../../api";
 import {
     Container,
     Typography,

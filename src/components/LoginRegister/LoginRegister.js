@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { callApi } from "../../apiFunc";
+import { callApi } from "../../api";
 import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext.js";
 import useStyles from "./StylesLoginRegister";

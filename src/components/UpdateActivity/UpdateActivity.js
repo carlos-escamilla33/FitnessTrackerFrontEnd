@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
-import { callApi } from "../../apiFunc";
+import { callApi } from "../../api";
 import { Button, TextField } from "@material-ui/core";
 
 const UpdateActivity = () => {

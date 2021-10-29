@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { callApi } from "../../apiFunc";
+import { callApi } from "../../api";
 import { UserContext } from "../../context/UserContext";
 import {
     Button,

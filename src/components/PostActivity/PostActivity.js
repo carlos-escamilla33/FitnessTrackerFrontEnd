@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Container, Typography, TextField, Button } from "@material-ui/core"
-import { callApi } from "../../apiFunc";
+import { callApi } from "../../api";
 
 const PostActivity = () => {
     const { token, allActivities } = useContext(UserContext);

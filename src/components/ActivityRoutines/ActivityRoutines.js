@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { callApi } from "../../apiFunc";
+import { callApi } from "../../api";
 import { UserContext } from "../../context/UserContext";
 
 const ActivityRoutines = () => {

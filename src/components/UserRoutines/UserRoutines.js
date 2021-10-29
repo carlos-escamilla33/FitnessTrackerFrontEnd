@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { callApi } from "../../apiFunc";
+import { callApi } from "../../api";
 import { UserContext } from "../../context/UserContext"
 import "./UserRoutines.css";
 
