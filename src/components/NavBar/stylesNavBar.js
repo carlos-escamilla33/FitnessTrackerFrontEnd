@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     logo: {
         flexGrow: "1",
         cursor: "pointer",
-        color: 'white',
+        color: '#FFBF00',
         textDecoration: "none"
     },
     link: {

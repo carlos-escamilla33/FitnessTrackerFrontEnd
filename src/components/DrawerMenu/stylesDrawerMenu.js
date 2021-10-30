@@ -3,11 +3,11 @@ import { makeStyles, } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     paper: {
-        background: "white",
+        background: "black",
     },
     link: {
         textDecoration: "none",
-        color: 'black',
+        color: 'white',
         fontSize: "30px",
         "&:hover": {
             color: "#FFBF00",

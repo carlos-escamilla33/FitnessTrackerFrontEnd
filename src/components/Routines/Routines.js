@@ -5,6 +5,7 @@ import RoutineActions from "../RoutineActions/RoutineActions";
 import {
     Grid,
     Container,
+    CardMedia,
 } from "@material-ui/core";
 
 const Routines = () => {
