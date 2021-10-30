@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
 import PostActivity from "../PostActivity/PostActivity";
-import "./Activities.css";
+import useStyles from "./StylesActivities";
+import activity from '../../media/activity.jpeg';
 import {
     Container,
     Grid,
@@ -9,20 +10,26 @@ import {
     CardHeader,
     CardContent,
     Typography,
-    Button
+    Button,
+    CardMedia
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
 const Activites = () => {
     const { activities, allActivities, token } = useContext(UserContext);
     const history = useHistory();
+    const classes = useStyles();
 
     useEffect(() => {
-        allActivities()
+        allActivities();
     }, []);
     return (
         <Container>
             <PostActivity />
+            <CardMedia
+                className={classes.routineImage}
+                image={activity}
+            />
             <Grid container spacing={3}>
                 {
                     activities.reverse().map(activity => (

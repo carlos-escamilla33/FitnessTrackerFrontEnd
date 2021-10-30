@@ -29,6 +29,7 @@ const UserData = () => {
                     <>
                         <h1>Welcome</h1>
                         <h3>{user}</h3>
+                        <h3>You're logged in!</h3>
                     </> : null
             }
         </>

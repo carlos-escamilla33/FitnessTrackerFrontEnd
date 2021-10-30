@@ -69,7 +69,7 @@ const RoutineActions = () => {
                                             color="textSecondary"
                                             gutterbottom="true"
                                         >
-                                            {routine.goal}
+                                           Goal: {routine.goal}
                                         </Typography>
                                     </CardContent>
                                     <Container
@@ -93,7 +93,6 @@ const RoutineActions = () => {
                                                 </>
                                                 : null
                                         }
-                                        <Button color="primary">View Activities</Button>
                                     </Container>
                                 </Card>
                             </div>

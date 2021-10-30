@@ -10,6 +10,7 @@ import {
     FormControlLabel,
     Button
 } from "@material-ui/core";
+import useStyles from "./StylesUpdatedRoutine";
 
 
 const UpdateRoutine = () => {
@@ -20,8 +21,10 @@ const UpdateRoutine = () => {
     const [name, setName] = useState(`${routine.name}`);
     const [goal, setGoal] = useState(`${routine.goal}`);
     const [isPublic, setIsPublic] = useState(Boolean(`${routine.isPublic}`));
+    const classes = useStyles();
 
     const updateRoutine = async () => {
+
         try {
             const response = await callApi({
                 url: `/routines/${routineId}`,
@@ -71,38 +74,58 @@ const UpdateRoutine = () => {
     }
 
     return (
-        <Container
-            container="true"
-            justify="center"
-            align="center"
-            bottomgutter="true"
-        >
-            <form onSubmit={submitHandler}>
-                <div>
-                    <TextField
-                        value={name}
-                        onChange={nameHandler}
-                    />
-                </div>
-                <div>
-                    <TextField
-                        value={goal}
-                        onChange={goalHandler}
-                    />
-                </div>
-                <FormControlLabel
-                    label="Make Routine Public"
-                    control={
-                        <Switch
-                            checked={isPublic}
-                            onChange={isPublicHandler}
-                            inputProps={{ 'aria-label': 'secondary checkbox' }}
-                        />
-                    }
-                /><br />
-                <Button type="submit">Submit</Button>
-            </form>
-        </Container>
+        <>
+            {
+                token ?
+                    <Container
+                        className={classes.container
+                        }
+                        container="true"
+                        justify="center"
+                        align="center"
+                        bottomgutter="true"
+                    >
+                        <form onSubmit={submitHandler} className={classes.form}>
+                            <h1>Update Your Routine!</h1>
+                            <div>
+                                <TextField
+                                className={classes.topSpacing}
+                                    variant="outlined"
+                                    fullWidth={true}
+                                    value={name}
+                                    onChange={nameHandler}
+                                />
+                            </div>
+                            <div>
+                                <TextField
+                                    variant="outlined"
+                                    fullWidth={true}
+                                    className={classes.topSpacing}
+                                    value={goal}
+                                    onChange={goalHandler}
+                                />
+                            </div>
+                            <FormControlLabel
+                                className={classes.topSpacing}
+                                label="Make Routine Public"
+                                control={
+                                    <Switch
+                                        checked={isPublic}
+                                        onChange={isPublicHandler}
+                                        inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                    />
+                                }
+                            /><br />
+                            <Button
+                                variant="contained"
+                                fullWidth={true}
+                                className={classes.topSpacing}
+                                type="submit">Submit</Button>
+                        </form>
+                    </Container >
+                    : null
+            }
+        </>
     )
 }
 
