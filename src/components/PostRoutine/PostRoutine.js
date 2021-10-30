@@ -118,7 +118,8 @@ const PostRoutine = () => {
                             <div>
                                 <Button
                                     type="submit"
-                                    variant="outlined"
+                                    variant="contained"
+                                    color="primary"
                                     size="large"
                                     fullWidth={true}
                                     className={classes.button}
@@ -127,9 +128,9 @@ const PostRoutine = () => {
                         </form> : null
                 }
                 <CardMedia
-                        className={classes.routineImage}
-                        image={groupWorkout}
-                    />
+                    className={classes.routineImage}
+                    image={groupWorkout}
+                />
             </Container >
         </>
     )
