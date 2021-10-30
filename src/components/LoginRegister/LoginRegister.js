@@ -27,8 +27,10 @@ const LoginRegister = () => {
             console.log(response);
             if (response.message === "you're logged in!") {
                 setUser(response.user.username);
-                setToken(response.token)
                 if (response.token) {
+                    localStorage.setItem("token", response.token);
+                    localStorage.setItem("user", response.user.username);
+                    setToken(response.token)
                     history.push("/users/me");
                 }
             } else if (response.message === "you're signed up!") {

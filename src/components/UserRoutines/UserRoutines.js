@@ -29,18 +29,24 @@ const UserRoutines = () => {
 
     return (
         <>
-            <h1>My personal routines</h1>
             {
-                routines.map(routine => {
-                    return (
-                        <div key={routine.id}>
-                            <h3>{routine.creatorName}</h3>
-                            <p>{routine.name}</p>
-                            <p>{routine.goal}</p>
-                            <p>{routine.activity}</p>
-                        </div>
-                    )
-                })
+                token ?
+                    <>
+                        <h1>My personal routines</h1>
+                        {
+                            routines.map(routine => {
+                                return (
+                                    <div key={routine.id}>
+                                        <h3>{routine.creatorName}</h3>
+                                        <p>{routine.name}</p>
+                                        <p>{routine.goal}</p>
+                                        <p>{routine.activity}</p>
+                                    </div>
+                                )
+                            })
+                        }
+                    </>
+                    : null
             }
         </>
     )

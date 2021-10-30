@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { callApi } from "../../api";
-import {UserContext} from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 
 const UserData = () => {
     const { token, user } = useContext(UserContext);
@@ -20,12 +20,17 @@ const UserData = () => {
 
     useEffect(() => {
         personalData();
-    },[])
+    }, [])
 
     return (
         <>
-            <h1>Welcome</h1>
-            <h3>{user}</h3>
+            {
+                token ?
+                    <>
+                        <h1>Welcome</h1>
+                        <h3>{user}</h3>
+                    </> : null
+            }
         </>
     )
 }
