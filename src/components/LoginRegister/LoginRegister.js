@@ -30,7 +30,7 @@ const LoginRegister = () => {
                 if (response.token) {
                     localStorage.setItem("token", response.token);
                     localStorage.setItem("user", response.user.username);
-                    setToken(response.token)
+                    setToken(response.token);
                     history.push("/users/me");
                 }
             } else if (response.message === "you're signed up!") {

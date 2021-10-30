@@ -19,6 +19,7 @@ const NavBar = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
     const logout = () => {
+        localStorage.removeItem("token")
         setToken("");
         setUser("");
     }

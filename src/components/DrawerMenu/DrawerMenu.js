@@ -18,6 +18,7 @@ const DrawerMenu = () => {
     const classes = useStyles();
 
     const logOut = () => {
+        localStorage.removeItem("token");
         setToken("");
         setUser("");
     }
