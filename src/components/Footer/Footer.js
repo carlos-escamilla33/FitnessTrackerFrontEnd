@@ -1,21 +1,58 @@
 import React from "react";
-import useStyles from "./StylesFooter"
+import "./StylesFooter.css"
 import { Container, Grid, Box, Link } from "@material-ui/core";
+import { GitHub, Email, LinkedIn } from "@material-ui/icons";
 
 const Footer = () => {
-    const classes = useStyles();
-
     return (
-        <div>
-            <div className={classes.phantom} />
-            <div className={classes.footer}>
-                <div>
-                <Link href="/users/login">Children</Link>
-                </div>
-                <Link href="/users/login">Children</Link>
+        <footer className="box">
+            <h3 style={{ textAlign: "center" }}>Explore More About Me</h3>
+            <div className="footerContent">
+                <ul className="socials">
+                    <li>
+                        <Link href="https://github.com/carlos-escamilla33">
+                            <GitHub
+                                style={{ fontSize: "32px" }}
+                            />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="mailto:Crodriguezescamilla3@gmail.com">
+                            <Email
+                                style={{ fontSize: "32px" }}
+                            />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="https://www.linkedin.com/in/carlos-r-escamilla/">
+                            <LinkedIn
+                                style={{ fontSize: "32px" }}
+                            />
+                        </Link>
+                    </li>
+                </ul>
             </div>
-        </div>
+            <div className="bottomFooter">
+                <p>copyright &copy;2021. designed by <span>Carlos Escamilla</span></p>
+            </div>
+        </footer>
     )
 }
 
 export default Footer;
+
+
+
+{/* <div className={classes.container}>
+            <div className={classes.footer}>
+                <Link href="https://github.com/carlos-escamilla33">
+                    <GitHub style={{ fontSize: '32px' }} />
+                </Link>
+                <Link href="mailto:Crodriguezescamilla3@gmail.com">
+                    <Email style={{ fontSize: '32px' }} />
+                </Link>
+                <Link href="https://www.linkedin.com/in/carlos-r-escamilla/">
+                    <LinkedIn style={{ fontSize: '32px' }} />
+                </Link>
+            </div>
+        </div> */}

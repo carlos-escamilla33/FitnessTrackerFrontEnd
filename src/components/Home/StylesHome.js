@@ -3,7 +3,7 @@ import gym from '../../media/gym.jpeg';
 
 const useStyles = makeStyles(() => ({
     img: {
-        minHeight: "80vh",
+        minHeight: "90vh",
         backgroundImage: `url(${gym})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -18,6 +18,10 @@ const useStyles = makeStyles(() => ({
         left: '25%',
         fontSize: "50px",
         color: "white"
+    },
+    title: {
+        display: "flex",
+        justifyContent: "center",
     }
 }));
 
