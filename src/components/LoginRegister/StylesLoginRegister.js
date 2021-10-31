@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     link: {
-        cursor: "pointer"
+        cursor: "pointer",
     },
     title: {
         textAlign: "center",
@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
         borderRadius: "10px"
     },
     topSpacing: {
-        marginTop: "25px"
+        marginTop: "25px",
     }
 }))
 

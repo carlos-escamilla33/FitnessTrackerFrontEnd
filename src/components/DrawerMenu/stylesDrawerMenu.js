@@ -3,7 +3,7 @@ import { makeStyles, } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     paper: {
-        background: "black",
+        background: "#000000",
     },
     link: {
         textDecoration: "none",
