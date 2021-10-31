@@ -7,14 +7,14 @@ const useStyles = makeStyles(() => ({
     },
     link: {
         textDecoration: "none",
-        color: 'white',
+        color: '#FFFFFF',
         fontSize: "30px",
         "&:hover": {
             color: "#FFBF00",
         }
     },
     icon: {
-        color: "white",
+        color: "#FFFFFF",
     }
 }));
 
