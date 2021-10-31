@@ -9,12 +9,6 @@ const useStyles = makeStyles(() => ({
         textAlign: "center",
         color: "black"
     },
-    container: {
-        minHeight: "75vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-    },
     form : {
         height: "600px",
         width: "600px",
