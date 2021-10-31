@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f0b8533f.chunk.css",
+    "main.js": "/static/js/main.31ddc734.chunk.js",
+    "main.js.map": "/static/js/main.31ddc734.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7766c015.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7766c015.js.map",
+    "static/js/2.079dc329.chunk.js": "/static/js/2.079dc329.chunk.js",
+    "static/js/2.079dc329.chunk.js.map": "/static/js/2.079dc329.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.f0b8533f.chunk.css.map": "/static/css/main.f0b8533f.chunk.css.map",
+    "static/js/2.079dc329.chunk.js.LICENSE.txt": "/static/js/2.079dc329.chunk.js.LICENSE.txt",
+    "static/media/activity.8e86b516.jpeg": "/static/media/activity.8e86b516.jpeg",
+    "static/media/groupWorkout.4423f89a.jpeg": "/static/media/groupWorkout.4423f89a.jpeg",
+    "static/media/gym.852a990b.jpeg": "/static/media/gym.852a990b.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7766c015.js",
+    "static/js/2.079dc329.chunk.js",
+    "static/css/main.f0b8533f.chunk.css",
+    "static/js/main.31ddc734.chunk.js"
+  ]
+}
