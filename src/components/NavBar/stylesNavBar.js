@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
     },
     appBar: {
-        backgroundColor: "#000000",
+        background: "#000000",
     },
     logo: {
         flexGrow: "1",
