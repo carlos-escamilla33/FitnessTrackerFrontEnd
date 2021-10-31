@@ -6,6 +6,9 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.appBar {
+    background-color: black;
+}
 .content {
     min-height: calc(100vh - 120px);
     margin-top: 30px;
