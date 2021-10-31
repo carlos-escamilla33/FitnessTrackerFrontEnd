@@ -1,6 +1,6 @@
 import React from "react";
 import "./StylesFooter.css"
-import { Container, Grid, Box, Link } from "@material-ui/core";
+import { Link } from "@material-ui/core";
 import { GitHub, Email, LinkedIn } from "@material-ui/icons";
 
 const Footer = () => {

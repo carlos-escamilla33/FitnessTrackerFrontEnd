@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { callApi } from "../api";
 
 const UserContext = createContext();
@@ -15,7 +15,6 @@ const UserProvider = ({ children }) => {
             const response = await callApi({
                 url: "/routines",
             });
-            console.log(response);
             if (response) {
                 setRoutines(response);
             }
@@ -30,7 +29,6 @@ const UserProvider = ({ children }) => {
             const response = await callApi({
                 url: "/activities",
             })
-            console.log(response);
             if (response) {
                 setActivities(response);
             }

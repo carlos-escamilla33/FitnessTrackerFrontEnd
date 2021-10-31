@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../context/UserContext";
+import React from "react";
 import PostRoutine from "../PostRoutine/PostRoutine";
 import RoutineActions from "../RoutineActions/RoutineActions";
 import {
     Grid,
     Container,
-    CardMedia,
 } from "@material-ui/core";
 
 const Routines = () => {

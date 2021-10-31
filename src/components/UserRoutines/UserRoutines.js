@@ -15,7 +15,6 @@ const UserRoutines = () => {
                 url: `/users/${user}/routines`,
                 token
             });
-            console.log(response)
             if (response) {
                 setRoutines(response);
             }

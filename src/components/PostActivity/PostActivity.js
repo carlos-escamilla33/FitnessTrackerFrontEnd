@@ -22,9 +22,6 @@ const PostActivity = () => {
                 }
             })
             await allActivities();
-            if (response) {
-                console.log(response);
-            }
         }
         catch (error) {
             console.log(error);

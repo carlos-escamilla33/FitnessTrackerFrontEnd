@@ -24,7 +24,6 @@ const LoginRegister = () => {
                     password
                 }
             })
-            console.log(response);
             if (response.message === "you're logged in!") {
                 setUser(response.user.username);
                 if (response.token) {

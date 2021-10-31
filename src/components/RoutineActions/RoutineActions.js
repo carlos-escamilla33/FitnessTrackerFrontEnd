@@ -29,9 +29,6 @@ const RoutineActions = () => {
                 token
             })
             await publicRoutines();
-            if (response) {
-                console.log(response);
-            }
         }
         catch (error) {
             console.log(error);

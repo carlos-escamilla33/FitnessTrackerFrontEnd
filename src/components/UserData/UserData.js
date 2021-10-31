@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { callApi } from "../../api";
 import { UserContext } from "../../context/UserContext";
 import useStyles from "./UserStyles";
@@ -14,7 +14,6 @@ const UserData = () => {
                 url: "/users/me",
                 token
             });
-            console.log(response);
         }
         catch (error) {
             console.log(error);

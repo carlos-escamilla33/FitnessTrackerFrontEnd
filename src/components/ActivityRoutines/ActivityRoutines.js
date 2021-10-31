@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { callApi } from "../../api";
-import { UserContext } from "../../context/UserContext";
 
 const ActivityRoutines = () => {
-    // const { routines } = useContext(UserContext);
-    const history = useHistory();
     const routineId= useParams();
     const [routines, setRoutines] = useState([]);
 
@@ -14,7 +11,6 @@ const ActivityRoutines = () => {
             const response = await callApi({
                 url: `routines/${routineId}/routines`
             })
-            console.log(response);
             if (response) {
                 setRoutines(response);
             }

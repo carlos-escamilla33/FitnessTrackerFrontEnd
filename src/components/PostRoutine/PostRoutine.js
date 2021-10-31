@@ -33,9 +33,6 @@ const PostRoutine = () => {
                 }
             })
             await publicRoutines();
-            if (response) {
-                console.log(response)
-            }
         }
         catch (error) {
             console.log(error)
@@ -51,7 +48,6 @@ const PostRoutine = () => {
     }
 
     const isPublicHandler = (event) => {
-        console.log(event.target.checked)
         setIsPublic(event.target.checked);
     };
 

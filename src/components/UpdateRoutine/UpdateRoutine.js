@@ -4,7 +4,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import {
     Container,
-    Typography,
     TextField,
     Switch,
     FormControlLabel,
@@ -36,9 +35,6 @@ const UpdateRoutine = () => {
                     isPublic
                 }
             })
-            if (response) {
-                console.log(response);
-            }
         }
         catch (error) {
             console.log(error);
@@ -54,7 +50,6 @@ const UpdateRoutine = () => {
     }
 
     const isPublicHandler = (event) => {
-        console.log(event.target.checked)
         setIsPublic(event.target.checked);
     };
 
