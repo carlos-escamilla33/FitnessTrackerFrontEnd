@@ -87,8 +87,8 @@ const DrawerMenu = () => {
                     }
                 </List>
             </Drawer>
-            <IconButton className={classes.icon} onClick={() => setOpenDrawer(!openDrawer)}>
-                <MenuIcon />
+            <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
+                <MenuIcon className={classes.icon}/>
             </IconButton>
         </>
     )
