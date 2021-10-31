@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { callApi } from "../../api";
 import { UserContext } from "../../context/UserContext"
-import "./UserRoutines.css";
+import { Container } from "@material-ui/core";
+import useStyles from "./UserRoutinesStyle";
 
 const UserRoutines = () => {
     const { token, user } = useContext(UserContext);
     const [routines, setRoutines] = useState([]);
+    const classes = useStyles();
 
     const userRoutines = async () => {
         try {
@@ -31,8 +33,9 @@ const UserRoutines = () => {
         <>
             {
                 token ?
-                    <>
+                    <Container className={classes.routines}>
                         <h1>My personal routines</h1>
+                        <p>These are all your routines you've posted</p><br />
                         {
                             routines.map(routine => {
                                 return (
@@ -45,7 +48,7 @@ const UserRoutines = () => {
                                 )
                             })
                         }
-                    </>
+                    </Container>
                     : null
             }
         </>
