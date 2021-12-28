@@ -9,6 +9,12 @@ const theme = createTheme({
             default: "#F3F3F3"
         },
     },
+    typography: {
+        fontFamily: [
+            'Work Sans',
+            "sans-serif"
+        ].join(",")
+    }
 });
 
 ReactDOM.render(

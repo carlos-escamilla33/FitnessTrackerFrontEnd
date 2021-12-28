@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
-import DrawerMenu from "./DrawerMenu/DrawerMenu";
+import DrawerMenu from "./DrawerMenu";
 import {
     AppBar,
     Toolbar,

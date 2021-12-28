@@ -1,16 +1,43 @@
 import React, { useState, useContext } from 'react';
-import { UserContext } from '../../context/UserContext';
+import { UserContext } from '../context/UserContext';
 import { Link } from "react-router-dom";
-import useStyles from './stylesDrawerMenu';
-import MenuIcon from "@material-ui/icons/Menu"
+import MenuIcon from '@mui/icons-material/Menu';
 import {
     Drawer,
     List,
     ListItem,
     ListItemText,
     IconButton,
-    Divider
+    makeStyles,
 } from "@material-ui/core";
+
+const useStyles = makeStyles(() => ({
+    listContainer: {
+        display: "flex",
+        justifyContent: "space-evenly",
+        flexDirection: "column",
+        height: '100vh'
+    },
+    paper: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+        background: "#000000",
+    },
+    link: {
+        textDecoration: "none",
+        color: '#FFFFFF',
+        fontSize: "40px",
+        "&:hover": {
+            color: "#FFBF00",
+            borderBottom: "1px solid white",
+        },
+        margin: "20px"
+    },
+    icon: {
+        color: "#FFFFFF",
+    }
+}));
 
 const DrawerMenu = () => {
     const { user, token, setToken, setUser } = useContext(UserContext);
@@ -38,20 +65,18 @@ const DrawerMenu = () => {
 
     return (
         <>
-            <Drawer open={openDrawer} onClose={updateDrawer} classes={{paper: classes.paper}}>
-                <List>
+            <Drawer open={openDrawer} onClose={updateDrawer} classes={{ paper: classes.paper }}>
+                <List className={classes.listContainer}>
                     <ListItem onClick={updateDrawer}>
                         <ListItemText>
                             <Link className={classes.link} to="/">Home</Link>
                         </ListItemText>
                     </ListItem>
-                    <Divider />
                     <ListItem onClick={updateDrawer}>
                         <ListItemText>
                             <Link className={classes.link} to="/routines">Routines</Link>
                         </ListItemText>
                     </ListItem>
-                    <Divider />
                     {
                         token.length > 1 ?
                             <ListItem onClick={updateDrawer}>
@@ -65,30 +90,28 @@ const DrawerMenu = () => {
                             <Link className={classes.link} to="/activities">Activities</Link>
                         </ListItemText>
                     </ListItem>
-                    <Divider />
                     {
                         token.length > 1 ?
                             <>
-                            <ListItem onClick={closeLogoutDrawer}>
-                                <ListItemText>
-                                    <Link className={classes.link} to="/">Logout</Link>
-                                </ListItemText>
-                            </ListItem>
-                            <Divider />
+                                <ListItem onClick={closeLogoutDrawer}>
+                                    <ListItemText>
+                                        <Link className={classes.link} to="/">Logout</Link>
+                                    </ListItemText>
+                                </ListItem>
                             </>
                             :
                             <>
-                            <ListItem onClick={updateDrawer}>
-                                <ListItemText>
-                                    <Link className={classes.link} to="/users/login">Login/Register</Link>
-                                </ListItemText>
-                            </ListItem>
+                                <ListItem onClick={updateDrawer}>
+                                    <ListItemText>
+                                        <Link className={classes.link} to="/users/login">Login/Register</Link>
+                                    </ListItemText>
+                                </ListItem>
                             </>
                     }
                 </List>
             </Drawer>
             <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
-                <MenuIcon style={{color: "white"}}/>
+                <MenuIcon fontSize="large" style={{ color: "white" }} />
             </IconButton>
         </>
     )
