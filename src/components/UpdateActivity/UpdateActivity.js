@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import { callApi } from "../../api";
 import { Button, Container, TextField } from "@material-ui/core";
@@ -11,7 +11,7 @@ const UpdateActivity = () => {
     const activity = activities.find(activity => activity.id === Number(activityId));
     const [name, setName] = useState(`${activity.name}`);
     const [description, setDescription] = useState(`${activity.description}`);
-    const history = useHistory();
+    const navigate = useNavigate();
     const classes = useStyles();
 
     const updateActivity = async () => {
@@ -52,7 +52,7 @@ const UpdateActivity = () => {
         setName("");
         setDescription("");
 
-        history.push("/activities");
+        navigate("/activities");
     }
 
     return (

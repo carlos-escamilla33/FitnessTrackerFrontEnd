@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { callApi } from "../../api";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext.js";
 import useStyles from "./StylesLoginRegister";
 import { Button, Container, TextField, Link } from "@material-ui/core";
@@ -9,7 +9,7 @@ const LoginRegister = () => {
     const { setToken, setUser } = useContext(UserContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();
+    const navigate = useNavigate();
     const { method } = useParams();
     const classes = useStyles();
 
@@ -30,10 +30,10 @@ const LoginRegister = () => {
                     localStorage.setItem("token", response.token);
                     localStorage.setItem("user", response.user.username);
                     setToken(response.token);
-                    history.push("/users/me");
+                    navigate.push("/users/me");
                 }
             } else if (response.message === "you're signed up!") {
-                history.push("/users/login");
+                navigate("/users/login");
             }
 
         }

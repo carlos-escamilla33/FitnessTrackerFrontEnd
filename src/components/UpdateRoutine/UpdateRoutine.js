@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { callApi } from "../../api";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import {
     Container,
@@ -15,7 +15,7 @@ import useStyles from "./StylesUpdatedRoutine";
 const UpdateRoutine = () => {
     const { publicRoutines, routines, token } = useContext(UserContext);
     const { routineId } = useParams();
-    const history = useHistory();
+    const navigate = useNavigate();
     const routine = routines.find(routine => routine.id === Number(routineId));
     const [name, setName] = useState(`${routine.name}`);
     const [goal, setGoal] = useState(`${routine.goal}`);
@@ -65,7 +65,7 @@ const UpdateRoutine = () => {
         setName("");
         setGoal("");
 
-        history.push("/routines");
+        navigate("/routines");
     }
 
     return (

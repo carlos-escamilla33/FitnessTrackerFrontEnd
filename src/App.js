@@ -1,10 +1,8 @@
 import { useContext, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
 import "./App.css"
 import {
     LoginRegister,
     UserData,
-    NavBar,
     Home,
     Routines,
     Activities,
@@ -13,6 +11,7 @@ import {
     UpdateRoutine,
     ActivityRoutines
 } from "./components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContext } from "./context/UserContext";
 
 
@@ -28,37 +27,19 @@ const App = () => {
     }, []);
 
     return (
-        <div className="content">
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route exact path="/users/me">
-                    <UserData />
-                </Route>
-                <Route exact path="/users/:username/routines">
-                    <UserRoutines />
-                </Route>
-                <Route path="/users/:method">
-                    <LoginRegister />
-                </Route>
-                <Route exact path="/routines">
-                    <Routines />
-                </Route>
-                <Route exact path="/routines/:routineId">
-                    <UpdateRoutine />
-                </Route>
-                <Route exact path="/activities">
-                    <Activities />
-                </Route>
-                <Route exact path="/activities/:activityId">
-                    <UpdateActivity />
-                </Route>
-                <Route exact path="/activity/:activityId/routines">
-                    <ActivityRoutines />
-                </Route>
-            </Switch>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/users/me" element={<UserData />} />
+                <Route exact path="/users/:username/routines" element={<UserRoutines />} />
+                <Route path="/users/:method" element={<LoginRegister />} />
+                <Route exact path="/routines" element={<Routines />} />
+                <Route exact path="/routines/:routineId" element={<UpdateRoutine />} />
+                <Route exact path="/activities" element={<Activities />} />
+                <Route exact path="/activities/:activityId" element={<UpdateActivity />} />
+                <Route exact path="/activity/:activityId/routines" element={<ActivityRoutines />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
 

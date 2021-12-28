@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { callApi } from "../../api";
 import { UserContext } from "../../context/UserContext";
 import {
@@ -19,7 +19,7 @@ const RoutineActions = () => {
         user,
         publicRoutines
     } = useContext(UserContext);
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const deleteRoutine = async (routineId) => {
         try {
@@ -80,7 +80,7 @@ const RoutineActions = () => {
                                                     <Button
                                                         color="inherit"
                                                         size="small"
-                                                        onClick={() => history.push(`/routines/${routine.id}`)}
+                                                        onClick={() => navigate(`/routines/${routine.id}`)}
                                                     >Edit</Button>
                                                     <Button
                                                         color="secondary"

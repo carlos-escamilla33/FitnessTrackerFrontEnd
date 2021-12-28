@@ -13,11 +13,11 @@ import {
     Button,
     CardMedia
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Activites = () => {
     const { activities, allActivities, token } = useContext(UserContext);
-    const history = useHistory();
+    const navigate = useNavigate();
     const classes = useStyles();
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const Activites = () => {
                                                 <Button
                                                     color="inherit"
                                                     size="small"
-                                                    onClick={() => history.push(`/activities/${activity.id}`)}
+                                                    onClick={() => navigate.push(`/activities/${activity.id}`)}
                                                 >Edit</Button>
                                             </>
                                             :
