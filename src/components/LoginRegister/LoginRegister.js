@@ -30,7 +30,7 @@ const LoginRegister = () => {
                     localStorage.setItem("token", response.token);
                     localStorage.setItem("user", response.user.username);
                     setToken(response.token);
-                    navigate.push("/users/me");
+                    navigate("/users/me");
                 }
             } else if (response.message === "you're signed up!") {
                 navigate("/users/login");
@@ -118,7 +118,7 @@ const LoginRegister = () => {
                                 className={classes.link}
                                 onClick={(event) => {
                                     event.preventDefault()
-                                    history.push("/users/register")
+                                    navigate("/users/register")
                                 }}
                             >
                                 {'Dont have an account? Register here'}
@@ -131,7 +131,7 @@ const LoginRegister = () => {
                                 className={classes.link}
                                 onClick={(event) => {
                                     event.preventDefault()
-                                    history.push("/users/login")
+                                    navigate("/users/login")
                                 }}
                             >
                                 {'Already registered? Login here'}

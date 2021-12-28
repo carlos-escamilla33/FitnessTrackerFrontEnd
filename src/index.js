@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import { UserProvider } from './context/UserContext';
 import { MuiThemeProvider, createTheme, CssBaseline } from '@material-ui/core';
 import App from "./App.js"
-
+// font-family: 'Alfa Slab One', cursive;
 const theme = createTheme({
     palette: {
         background: {

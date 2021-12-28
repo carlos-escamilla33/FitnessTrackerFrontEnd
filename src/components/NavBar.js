@@ -12,28 +12,34 @@ import {
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-    navLinks: {
-        marginLeft: theme.spacing(10),
-        display: "flex",
-    },
     appBar: {
-        background: "#000000",
+        background: "black",
+        padding: "25px",
     },
     logo: {
         flexGrow: "1",
         cursor: "pointer",
-        color: '#FFBF00',
-        textDecoration: "none"
+        color: 'white',
+        textDecoration: "none",
+        fontFamily: [
+            'Montserrat',
+            "sans-serif"
+        ].join(","),
+        fontSize: "43px"
     },
     link: {
         textDecoration: "none",
         color: "white",
-        fontSize: "20px",
+        fontSize: "25px",
         marginLeft: theme.spacing(10),
         "&:hover": {
             color: '#FFBF00',
             borderBottom: "1px solid white",
         },
+        fontFamily: [
+            'Work Sans',
+            "sans-serif"
+        ].join(",")
     },
 }))
 
@@ -59,7 +65,7 @@ const NavBar = () => {
                     isMobile ?
                         <DrawerMenu />
                         :
-                        <div>
+                        <div className={classes.navLinks}>
                             <Link to="/" className={classes.link}>Home</Link>
                             <Link to="/routines" className={classes.link}>Routines</Link>
                             {
