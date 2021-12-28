@@ -1,16 +1,41 @@
 import React, { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
-import useStyles from "./stylesNavBar.js";
-import DrawerMenu from "../DrawerMenu/DrawerMenu";
+import DrawerMenu from "./DrawerMenu/DrawerMenu";
 import {
     AppBar,
-    CssBaseline,
     Toolbar,
     Typography,
     useTheme,
-    useMediaQuery
+    useMediaQuery,
+    makeStyles
 } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+    navLinks: {
+        marginLeft: theme.spacing(10),
+        display: "flex",
+    },
+    appBar: {
+        background: "#000000",
+    },
+    logo: {
+        flexGrow: "1",
+        cursor: "pointer",
+        color: '#FFBF00',
+        textDecoration: "none"
+    },
+    link: {
+        textDecoration: "none",
+        color: "white",
+        fontSize: "20px",
+        marginLeft: theme.spacing(10),
+        "&:hover": {
+            color: '#FFBF00',
+            borderBottom: "1px solid white",
+        },
+    },
+}))
 
 const NavBar = () => {
     const { token, setToken, setUser, user } = useContext(UserContext);

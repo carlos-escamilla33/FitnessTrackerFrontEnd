@@ -9,15 +9,6 @@ const theme = createTheme({
             default: "#F3F3F3"
         },
     },
-    // overrides: {
-    //     MuiCssBaseline: {
-    //       '@global': {
-    //         html: {
-    //           WebkitFontSmoothing: 'auto',
-    //         },
-    //       },
-    //     },
-    //   },
 });
 
 ReactDOM.render(
