@@ -1,6 +1,6 @@
-import { useContext, useEffect } from "react";
-import "./App.css"
 import {
+    NavBar,
+    Footer,
     LoginRegister,
     UserData,
     Home,
@@ -11,6 +11,7 @@ import {
     UpdateRoutine,
     ActivityRoutines
 } from "./components";
+import { useContext, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContext } from "./context/UserContext";
 
@@ -28,6 +29,7 @@ const App = () => {
 
     return (
         <BrowserRouter>
+            <NavBar />
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/users/me" element={<UserData />} />
@@ -39,6 +41,7 @@ const App = () => {
                 <Route exact path="/activities/:activityId" element={<UpdateActivity />} />
                 <Route exact path="/activity/:activityId/routines" element={<ActivityRoutines />} />
             </Routes>
+            <Footer />
         </BrowserRouter>
     )
 }
