@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
 import DrawerMenu from "./DrawerMenu";
+import KayakingIcon from '@mui/icons-material/Kayaking';
 import {
     AppBar,
     Toolbar,
@@ -36,11 +37,10 @@ const useStyles = makeStyles((theme) => ({
             color: '#FFBF00',
             borderBottom: "1px solid white",
         },
-        fontFamily: [
-            'Work Sans',
-            "sans-serif"
-        ].join(",")
     },
+    kayakIcon: {
+        transform: "scale(1.5)"
+    }
 }))
 
 const NavBar = () => {
@@ -59,7 +59,7 @@ const NavBar = () => {
         <AppBar position="static">
             <Toolbar className={classes.appBar}>
                 <Typography variant="h4" className={classes.logo} component={Link} to={"/"}>
-                    FitnessTracker
+                    FitnessTracker <KayakingIcon className={classes.kayakIcon}/>
                 </Typography>
                 {
                     isMobile ?
