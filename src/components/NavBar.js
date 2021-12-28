@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
 import DrawerMenu from "./DrawerMenu";
-import KayakingIcon from '@mui/icons-material/Kayaking';
+import TimerOutlinedIcon from '@mui/icons-material/TimerOutlined';
 import {
     AppBar,
     Toolbar,
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         textDecoration: "none",
         color: "white",
         fontSize: "25px",
-        marginLeft: theme.spacing(10),
+        marginLeft: theme.spacing(8),
         "&:hover": {
             color: '#FFBF00',
             borderBottom: "1px solid white",
@@ -59,7 +59,7 @@ const NavBar = () => {
         <AppBar position="static">
             <Toolbar className={classes.appBar}>
                 <Typography variant="h4" className={classes.logo} component={Link} to={"/"}>
-                    FitnessTracker <KayakingIcon className={classes.kayakIcon}/>
+                    FitnessTracker <TimerOutlinedIcon className={classes.kayakIcon}/>
                 </Typography>
                 {
                     isMobile ?
