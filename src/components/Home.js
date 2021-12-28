@@ -1,40 +1,45 @@
 import React from "react";
 import { makeStyles, Paper, Typography } from "@material-ui/core";
-import gym from '../media/gym.png';
+import gym from '../media/gym5.jpg';
 
 const useStyles = makeStyles(() => ({
-    img: {
-        minHeight: "70vh",
-        backgroundImage: `url(${gym})`,
-        backgroundSize: "cover",
+    container: {
+        position: "relative"
     },
     textContainer: {
         display: "flex",
         justifyContent: "center",
+        mx: "auto"
+    },
+    img: {
+        minHeight: "90vh",
+        backgroundImage: `url(${gym})`,
+        backgroundSize: "cover",
     },
     text: {
         position: "absolute",
         textAlign: "center",
-        fontSize: "50px",
-        color: "white"
+        fontSize: "70px",
+        fontWeight: "900",
+        color: "white",
+        marginTop: "10%"
     },
-    title: {
-        display: "flex",
-        justifyContent: "center",
-    }
 }));
 
 const Home = () => {
     const classes = useStyles();
 
     return (
-        <Paper>
+        <Paper className={classes.container}>
             <div className={classes.textContainer}>
-                <Typography className={classes.text}>Welcome to FitnessTracker</Typography>
+                <Typography className={classes.text}>
+                    Welcome to FitnessTracker
+                    <Typography variant='h5'>
+                        Find out what you are capable of and start your workout today!
+                    </Typography>
+                </Typography>
             </div>
             <div className={classes.img} />
-            <div className={classes.title}>
-            </div>
         </Paper>
     )
 }

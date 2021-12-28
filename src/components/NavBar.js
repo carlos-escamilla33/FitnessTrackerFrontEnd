@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
             'Montserrat',
             "sans-serif"
         ].join(","),
-        fontSize: "43px"
+        fontSize: "40px"
     },
     link: {
         textDecoration: "none",
