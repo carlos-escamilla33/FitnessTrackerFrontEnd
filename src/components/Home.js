@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles, Paper, Typography } from "@material-ui/core";
 import gym from '../media/gym5.jpg';
+import { Link } from "react-router-dom";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const useStyles = makeStyles(() => ({
     container: {
@@ -24,6 +26,23 @@ const useStyles = makeStyles(() => ({
         color: "white",
         marginTop: "10%"
     },
+    routineButton: {
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "50px",
+        marginRight: "110px",
+        marginLeft: "110px",
+        fontSize: "25px",
+        borderRadius: "5px",
+        padding: "10px",
+        textDecoration: "none",
+        color: "black",
+        backgroundColor: "white",
+        "&:hover": {
+            backgroundImage: "linear-gradient(315deg, #000000 0%, #7f8c8d 74%)",
+            color: "white"
+        },
+    }
 }));
 
 const Home = () => {
@@ -32,12 +51,19 @@ const Home = () => {
     return (
         <Paper className={classes.container}>
             <div className={classes.textContainer}>
-                <Typography className={classes.text}>
-                    Welcome to FitnessTracker
+                <div className={classes.text}>
+                    <Typography variant='h2'>
+                        Welcome to FitnessTracker
+                    </Typography>
                     <Typography variant='h5'>
                         Find out what you are capable of and start your workout today!
                     </Typography>
-                </Typography>
+                    <div>
+                        <Link className={classes.routineButton} to="/routines">
+                            Workout Routines <ArrowForwardIcon fontSize="large" />
+                        </Link>
+                    </div>
+                </div>
             </div>
             <div className={classes.img} />
         </Paper>
