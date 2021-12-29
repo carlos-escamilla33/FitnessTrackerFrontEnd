@@ -56,7 +56,7 @@ const UpdateActivity = () => {
     }
 
     return (
-        <Container className={classes.container}>
+        <Container container="true" className={classes.container}>
             <form onSubmit={submitHandler} className={classes.form}>
 
                 <h1 style={{textAlign: "center"}}>Update Activity</h1>

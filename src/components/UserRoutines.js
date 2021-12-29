@@ -1,8 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import { callApi } from "../../api";
-import { UserContext } from "../../context/UserContext"
+import { callApi } from "../api";
+import { UserContext } from "../context/UserContext"
 import { Container } from "@material-ui/core";
-import useStyles from "./UserRoutinesStyle";
+
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles(() => ({
+    routines: {
+        textAlign: "center",
+        fontSize: "25px"
+    },
+}));
 
 const UserRoutines = () => {
     const { token, user } = useContext(UserContext);
@@ -32,7 +40,7 @@ const UserRoutines = () => {
         <>
             {
                 token ?
-                    <Container className={classes.routines}>
+                    <Container container="true" className={classes.routines}>
                         <h1>My personal routines</h1>
                         <p>These are all your routines you've posted</p><br />
                         {

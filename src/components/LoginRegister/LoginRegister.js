@@ -61,12 +61,13 @@ const LoginRegister = () => {
 
 
     return (
-        <Container style={{
-            minHeight: "75vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-        }}>
+        <Container container="true"
+            style={{
+                minHeight: "75vh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}>
             <form onSubmit={onSubmitHandler} className={classes.form}>
 
                 {

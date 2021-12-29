@@ -24,7 +24,7 @@ const Activites = () => {
         allActivities();
     }, []);
     return (
-        <Container>
+        <Container container="true">
             <PostActivity />
             <CardMedia
                 className={classes.routineImage}

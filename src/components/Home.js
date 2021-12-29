@@ -33,6 +33,7 @@ const useStyles = makeStyles(() => ({
         marginRight: "110px",
         marginLeft: "110px",
         fontSize: "25px",
+        fontStyle: "italic",
         borderRadius: "5px",
         padding: "10px",
         textDecoration: "none",
@@ -60,7 +61,7 @@ const Home = () => {
                     </Typography>
                     <div>
                         <Link className={classes.routineButton} to="/routines">
-                            Workout Routines <ArrowForwardIcon fontSize="large" />
+                            Workout Routines<ArrowForwardIcon fontSize="large" />
                         </Link>
                     </div>
                 </div>

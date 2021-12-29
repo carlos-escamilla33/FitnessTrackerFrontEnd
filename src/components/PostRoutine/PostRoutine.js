@@ -11,7 +11,27 @@ import {
     FormControlLabel,
     CardMedia
 } from "@material-ui/core";
-import useStyles from "./StylesPostRoutine";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles(() => ({
+    postForm: {
+        backgroundColor: "white",
+        margin: "30px",
+        padding: "30px",
+        borderRadius: "20px",
+        width: "70%"
+    },
+    button: {
+        borderRadius: "10px"
+    },
+    routineImage: {
+        height: 700,
+        width: 1000,
+        margin: 'auto',
+        marginBottom: "30px",
+        borderRadius: "10px"
+    },
+}))
 
 const PostRoutine = () => {
     const { token, publicRoutines } = useContext(UserContext);
@@ -58,77 +78,71 @@ const PostRoutine = () => {
 
         setName("");
         setGoal("");
-        setIsPublic("")
+        setIsPublic(false)
     }
     return (
-        <>
-            <Container
-                container="true"
-                justify="center"
-                align="center"
-                bottomgutter="true"
-            >
-                <div>
-                    < Typography variant="h3" >Welcome to the Workout Routines</Typography ><br />
-                    <Typography variant="h5">
-                        Training smarter is going to allow you to maximize your results in the gym.
-                        These fitness routines will help you better understand different workouts, nutrition, and more.
-                        The goal of these routines is to provide you with resources that are going to help you be your healthiest self.
-                    </Typography><br />
-                </div>
-                {
-                    token ?
-                        <form onSubmit={submitHandler} className={classes.postForm}>
-                            <Typography variant="h5">Post your workout routine below!</Typography>
-                            <TextField
-                                label={'workout name'}
-                                id="margin-normal"
-                                fullWidth={true}
-                                margin="normal"
-                                variant="outlined"
-                                onChange={workoutNameHandler}
-                                value={name}
-                            /><br />
+        <Container
+            container="true"
+            justify="center"
+            align="center"
+            bottomgutter="true"
+        >
+            <div>
+                < Typography variant="h3" >Welcome to the Workout Routines</Typography ><br />
+                <Typography variant="h5">
+                    Training smarter is going to allow you to maximize your results in the gym.
+                    These fitness routines will help you better understand different workouts, nutrition, and more.
+                    The goal of these routines is to provide you with resources that are going to help you be your healthiest self.
+                </Typography><br />
+            </div>
+            {
+                token ?
+                    <form onSubmit={submitHandler} className={classes.postForm}>
+                        <Typography variant="h5">Post your workout routine below!</Typography>
+                        <TextField
+                            label={'workout name'}
+                            id="margin-normal"
+                            fullWidth={true}
+                            margin="normal"
+                            variant="outlined"
+                            onChange={workoutNameHandler}
+                            value={name}
+                        /><br />
 
-                            <TextField
-                                label={'describe your goal'}
-                                id="outlined-textarea"
+                        <TextField
+                            label={'describe your goal'}
+                            id="outlined-textarea"
+                            fullWidth={true}
+                            margin="normal"
+                            variant="outlined"
+                            onChange={goalHandler}
+                            value={goal}
+                            multiline
+                        /><br />
+                        <FormControlLabel
+                            label="Make Routine Public"
+                            control={
+                                <Switch
+                                    checked={isPublic}
+                                    onChange={isPublicHandler}
+                                    name="public"
+                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                />
+                            }
+                        />
+                        <div>
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                color="primary"
+                                size="large"
                                 fullWidth={true}
-                                margin="normal"
-                                variant="outlined"
-                                onChange={goalHandler}
-                                value={goal}
-                                multiline
-                            /><br />
-                            <FormControlLabel
-                                label="Make Routine Public"
-                                control={
-                                    <Switch
-                                        checked={isPublic}
-                                        onChange={isPublicHandler}
-                                        name="public"
-                                        inputProps={{ 'aria-label': 'secondary checkbox' }}
-                                    />
-                                }
-                            />
-                            <div>
-                                <Button
-                                    type="submit"
-                                    variant="contained"
-                                    color="primary"
-                                    size="large"
-                                    fullWidth={true}
-                                    className={classes.button}
-                                >Submit</Button>
-                            </div>
-                        </form> : null
-                }
-                <CardMedia
-                    className={classes.routineImage}
-                    image={groupWorkout}
-                />
-            </Container >
-        </>
+                                className={classes.button}
+                            >Submit</Button>
+                        </div>
+                    </form> : null
+            }
+        </Container >
     )
 }
 
