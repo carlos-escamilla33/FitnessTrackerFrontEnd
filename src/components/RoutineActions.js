@@ -75,7 +75,7 @@ const RoutineActions = () => {
                             input: classes.resize,
                         },
                     }}
-                    className={{root: classes.customTextField}}
+                    className={classes.customTextField}
                     style={{ width: "500px" }}
                     label={<span style={{ fontSize: '1.8rem' }}>Search For A Routine</span>}
                     id="outlined-basic"
