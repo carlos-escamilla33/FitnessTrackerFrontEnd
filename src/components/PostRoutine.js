@@ -22,16 +22,26 @@ const useStyles = makeStyles(() => ({
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        // marginTop: "40%",
         padding: "30px",
         borderRadius: "20px",
-        // width: "70%",
         border: '2px solid #000',
         transform: 'translate(-50%, -50%)',
     },
     submitButton: {
         borderRadius: "10px"
     },
+    addRoutineButton: {
+        color: "black",
+        fontSize: "20px",
+        width: "280px",
+        fontStyle: "italic",
+        fontWeight: "900",
+        backgroundImage: "white",
+        "&:hover": {
+            backgroundImage: "linear-gradient(315deg, #000000 0%, #7f8c8d 74%)",
+            color: "white"
+        },
+    }
 }))
 
 const PostRoutine = () => {
@@ -88,7 +98,7 @@ const PostRoutine = () => {
             {
                 token ?
                     <div>
-                        <Button onClick={handleOpen}>Add A Routine</Button>
+                        <Button variant="contained" className={classes.addRoutineButton} onClick={handleOpen}>Add A Routine</Button>
                         <Modal
                             aria-labelledby="transition-modal-title"
                             aria-describedby="transition-modal-description"
@@ -101,50 +111,50 @@ const PostRoutine = () => {
                             }}
                         >
                             <Fade in={open}>
-                                    <form onSubmit={submitHandler} className={classes.postForm}>
-                                        <Typography variant="h5">Post your workout routine below!</Typography>
-                                        <TextField
-                                            label={'workout name'}
-                                            id="margin-normal"
-                                            fullWidth={true}
-                                            margin="normal"
-                                            variant="outlined"
-                                            onChange={workoutNameHandler}
-                                            value={name}
-                                        /><br />
+                                <form onSubmit={submitHandler} className={classes.postForm}>
+                                    <Typography variant="h5">Post your workout routine below!</Typography>
+                                    <TextField
+                                        label={'workout name'}
+                                        id="margin-normal"
+                                        fullWidth={true}
+                                        margin="normal"
+                                        variant="outlined"
+                                        onChange={workoutNameHandler}
+                                        value={name}
+                                    /><br />
 
-                                        <TextField
-                                            label={'describe your goal'}
-                                            id="outlined-textarea"
+                                    <TextField
+                                        label={'describe your goal'}
+                                        id="outlined-textarea"
+                                        fullWidth={true}
+                                        margin="normal"
+                                        variant="outlined"
+                                        onChange={goalHandler}
+                                        value={goal}
+                                        multiline
+                                    /><br />
+                                    <FormControlLabel
+                                        label="Make Routine Public"
+                                        control={
+                                            <Switch
+                                                checked={isPublic}
+                                                onChange={isPublicHandler}
+                                                name="public"
+                                                inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                            />
+                                        }
+                                    />
+                                    <div>
+                                        <Button
+                                            type="submit"
+                                            variant="contained"
+                                            color="primary"
+                                            size="large"
                                             fullWidth={true}
-                                            margin="normal"
-                                            variant="outlined"
-                                            onChange={goalHandler}
-                                            value={goal}
-                                            multiline
-                                        /><br />
-                                        <FormControlLabel
-                                            label="Make Routine Public"
-                                            control={
-                                                <Switch
-                                                    checked={isPublic}
-                                                    onChange={isPublicHandler}
-                                                    name="public"
-                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
-                                                />
-                                            }
-                                        />
-                                        <div>
-                                            <Button
-                                                type="submit"
-                                                variant="contained"
-                                                color="primary"
-                                                size="large"
-                                                fullWidth={true}
-                                                className={classes.submitButton}
-                                            >Submit</Button>
-                                        </div>
-                                    </form>
+                                            className={classes.submitButton}
+                                        >Submit</Button>
+                                    </div>
+                                </form>
                             </Fade>
                         </Modal>
                     </div>
@@ -155,56 +165,3 @@ const PostRoutine = () => {
 }
 
 export default PostRoutine;
-
-
-{/* <Container
-                                    container="true"
-                                    justify="center"
-                                    align="center"
-                                    bottomgutter="true"
-                                >
-                                    <form onSubmit={submitHandler} className={classes.postForm}>
-                                        <Typography variant="h5">Post your workout routine below!</Typography>
-                                        <TextField
-                                            label={'workout name'}
-                                            id="margin-normal"
-                                            fullWidth={true}
-                                            margin="normal"
-                                            variant="outlined"
-                                            onChange={workoutNameHandler}
-                                            value={name}
-                                        /><br />
-
-                                        <TextField
-                                            label={'describe your goal'}
-                                            id="outlined-textarea"
-                                            fullWidth={true}
-                                            margin="normal"
-                                            variant="outlined"
-                                            onChange={goalHandler}
-                                            value={goal}
-                                            multiline
-                                        /><br />
-                                        <FormControlLabel
-                                            label="Make Routine Public"
-                                            control={
-                                                <Switch
-                                                    checked={isPublic}
-                                                    onChange={isPublicHandler}
-                                                    name="public"
-                                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
-                                                />
-                                            }
-                                        />
-                                        <div>
-                                            <Button
-                                                type="submit"
-                                                variant="contained"
-                                                color="primary"
-                                                size="large"
-                                                fullWidth={true}
-                                                className={classes.submitButton}
-                                            >Submit</Button>
-                                        </div>
-                                    </form>
-                                </Container > : <Button variant="contained" onClick={addRoutineHandler}>Add Routine</Button> */}

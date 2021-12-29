@@ -6,7 +6,8 @@ import App from "./App.js"
 const theme = createTheme({
     palette: {
         background: {
-            default: "#F3F3F3"
+            // default: "#F3F3F3"
+            default: "black"
         },
     },
     typography: {

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { callApi } from "../api";
 import { UserContext } from "../context/UserContext";
+import PostRoutine from "./PostRoutine";
 import {
     Button,
     Grid,
@@ -66,20 +67,20 @@ const RoutineActions = () => {
 
     return (
         <>
+             <span><PostRoutine /></span>
             <div className={classes.textContainer}>
                 <TextField
-                    helperText={"Search for your routine or explore others"}
                     autoFocus={true}
                     InputProps={{
                         classes: {
-                            input: classes.resize,
+                            input: classes.resize
                         },
                     }}
                     className={classes.customTextField}
-                    style={{ width: "500px" }}
-                    label={<span style={{ fontSize: '1.8rem' }}>Search For A Routine</span>}
+                    style={{ width: "490px", backgroundColor:"white", borderRadius: "10px", padding: "10px" }}
+                    placeholder="Search For A Routine"
                     id="outlined-basic"
-                    variant="outlined"
+                    variant="standard"
                     value={searchTerm}
                     onChange={searchHandler}
                     type="text" />
