@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles(() => ({
     postForm: {
         backgroundColor: "white",
-        margin: "30px",
+        marginTop: "3%",
         padding: "30px",
         borderRadius: "20px",
         width: "70%"
@@ -22,13 +22,6 @@ const useStyles = makeStyles(() => ({
     submitButton: {
         borderRadius: "10px"
     },
-    titleContainer: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        marginTop: "3%",
-        marginBottom: "3%"
-    }
 }))
 
 const PostRoutine = () => {

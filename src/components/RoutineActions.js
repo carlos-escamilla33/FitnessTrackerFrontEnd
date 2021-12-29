@@ -10,8 +10,23 @@ import {
     CardContent,
     Typography,
     Container,
-    TextField
+    TextField,
+    makeStyles
 } from "@material-ui/core";
+
+const useStyles = makeStyles(() => ({
+    textContainer: {
+        margin: "50px",
+    },
+    resize: {
+        fontSize: 30
+    },
+    customTextField: {
+        "& input::placeholder": {
+            fontSize: "20px"
+        }
+    }
+}))
 
 const RoutineActions = () => {
     const {
@@ -21,6 +36,7 @@ const RoutineActions = () => {
         publicRoutines
     } = useContext(UserContext);
     const navigate = useNavigate();
+    const classes = useStyles()
     const [searchTerm, setSearchTerm] = useState("")
     const postMatches = (post, text) => post.includes(text)
     const filteredPosts = routines.filter(post => postMatches(post.name.toLowerCase(), searchTerm));
@@ -50,10 +66,18 @@ const RoutineActions = () => {
 
     return (
         <>
-            <div>
+            <div className={classes.textContainer}>
                 <TextField
-                    style={{ width: "350px" }}
-                    label="Search For A Routine"
+                    helperText={"Search for your routine or explore others"}
+                    autoFocus={true}
+                    InputProps={{
+                        classes: {
+                            input: classes.resize,
+                        },
+                    }}
+                    className={{root: classes.customTextField}}
+                    style={{ width: "500px" }}
+                    label={<span style={{ fontSize: '1.8rem' }}>Search For A Routine</span>}
                     id="outlined-basic"
                     variant="outlined"
                     value={searchTerm}
@@ -65,7 +89,7 @@ const RoutineActions = () => {
                 {
                     postsToDisplay.map(routine => {
                         return (
-                            <Grid item key={routine.id} xs={12} md={6} lg={4}>
+                            <Grid item key={routine.id} xs={12} md={6} lg={6}>
                                 <Card>
                                     <CardHeader
                                         title={routine.name}
