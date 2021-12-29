@@ -1,5 +1,5 @@
 import React from "react";
-import PostRoutine from "./PostRoutine/PostRoutine";
+import PostRoutine from "./PostRoutine";
 import RoutineActions from "./RoutineActions";
 import {
     Grid,
