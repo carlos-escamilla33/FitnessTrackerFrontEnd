@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { callApi } from "../api";
 import { UserContext } from "../context/UserContext";
 import PostRoutine from "./PostRoutine";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import {
     Button,
     Grid,
@@ -25,7 +27,12 @@ const useStyles = makeStyles(() => ({
     customTextField: {
         "& input::placeholder": {
             fontSize: "20px"
-        }
+        },
+    },
+    routineButtons: {
+        display: "flex",
+        justifyContent: "space-evenly",
+        padding: "10px"
     }
 }))
 
@@ -67,7 +74,7 @@ const RoutineActions = () => {
 
     return (
         <>
-             <span><PostRoutine /></span>
+            <span><PostRoutine /></span>
             <div className={classes.textContainer}>
                 <TextField
                     autoFocus={true}
@@ -77,7 +84,7 @@ const RoutineActions = () => {
                         },
                     }}
                     className={classes.customTextField}
-                    style={{ width: "490px", backgroundColor:"white", borderRadius: "10px", padding: "10px" }}
+                    style={{ width: "490px", backgroundColor: "white", borderRadius: "10px", padding: "10px" }}
                     placeholder="Search For A Routine"
                     id="outlined-basic"
                     variant="standard"
@@ -106,7 +113,7 @@ const RoutineActions = () => {
                                             {routine.creatorName}
                                         </Typography>
                                         <Typography
-                                            variant="body2"
+                                            variant="body1"
                                             color="textSecondary"
                                             gutterbottom="true"
                                         >
@@ -120,18 +127,22 @@ const RoutineActions = () => {
                                     >
                                         {
                                             routine.creatorName === user && token ?
-                                                <>
+                                                <div className={classes.routineButtons}>
                                                     <Button
+                                                        variant="outlined"
                                                         color="inherit"
+                                                        startIcon={<EditIcon />}
                                                         size="small"
                                                         onClick={() => navigate(`/routines/${routine.id}`)}
                                                     >Edit</Button>
                                                     <Button
+                                                        variant="outlined"
                                                         color="secondary"
                                                         size="small"
+                                                        startIcon={<DeleteIcon />}
                                                         onClick={() => deleteRoutine(routine.id)}
                                                     >Delete</Button>
-                                                </>
+                                                </div>
                                                 : <></>
                                         }
                                     </Container>
