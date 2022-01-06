@@ -21,12 +21,16 @@ const useStyles = makeStyles(() => ({
     textContainer: {
         margin: "50px",
     },
-    resize: {
-        fontSize: 30
-    },
-    customTextField: {
+    textBox: {
+        fontSize: 30,
+        color: "white",
+        backgroundColor: "black",
+        borderRadius: "10px",
+        padding: "10px",
+        border: "1px solid white",
         "& input::placeholder": {
-            fontSize: "20px"
+            fontSize: "20px",
+            color: "white",
         },
     },
     routineButtons: {
@@ -80,13 +84,11 @@ const RoutineActions = () => {
                     autoFocus={true}
                     InputProps={{
                         classes: {
-                            input: classes.resize
+                            input: classes.textBox,
                         },
                     }}
-                    className={classes.customTextField}
-                    style={{ width: "490px", backgroundColor: "white", borderRadius: "10px", padding: "10px" }}
-                    placeholder="Search For A Routine"
-                    id="outlined-basic"
+                    placeholder={"Search For A Routine"}
+                    id="standard-basic"
                     variant="standard"
                     value={searchTerm}
                     onChange={searchHandler}
