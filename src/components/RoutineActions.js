@@ -5,6 +5,8 @@ import { UserContext } from "../context/UserContext";
 import PostRoutine from "./PostRoutine";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import FaceOutlinedIcon from '@mui/icons-material/FaceOutlined';
+import EmojiFlagsOutlinedIcon from '@mui/icons-material/EmojiFlagsOutlined';
 import {
     Button,
     Grid,
@@ -112,13 +114,13 @@ const RoutineActions = () => {
 
                                             variant="overline"
                                         >
-                                            {routine.creatorName}
+                                            <FaceOutlinedIcon /><br />Routine Creator: {routine.creatorName}
                                         </Typography>
                                         <Typography
                                             variant="body1"
                                             gutterbottom="true"
                                         >
-                                            Goal: {routine.goal}
+                                            <EmojiFlagsOutlinedIcon /><br/>Goal: {routine.goal}
                                         </Typography>
                                     </CardContent>
                                     <Container
