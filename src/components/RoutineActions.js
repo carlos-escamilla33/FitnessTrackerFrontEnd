@@ -100,7 +100,7 @@ const RoutineActions = () => {
                     postsToDisplay.map(routine => {
                         return (
                             <Grid item key={routine.id} xs={12} md={6} lg={6}>
-                                <Card>
+                                <Card  style={{color: "white", backgroundColor: "black", border: "1px solid white"}}>
                                     <CardHeader
                                         title={routine.name}
                                         variant="h1"
@@ -116,7 +116,6 @@ const RoutineActions = () => {
                                         </Typography>
                                         <Typography
                                             variant="body1"
-                                            color="textSecondary"
                                             gutterbottom="true"
                                         >
                                             Goal: {routine.goal}
