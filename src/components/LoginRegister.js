@@ -106,9 +106,9 @@ const LoginRegister = () => {
                 <div>
                     <TextField
                         label="username"
+                        style={{backgroundColor: "white"}}
                         required={true}
                         fullWidth={true}
-                        id="outlined-basic"
                         variant="outlined"
                         value={username}
                         inputProps={{ minLength: 8 }}
@@ -120,9 +120,9 @@ const LoginRegister = () => {
                 <div className={classes.topSpacing}>
                     <TextField
                         label="password"
+                        style={{backgroundColor: "white"}}
                         required={true}
                         fullWidth={true}
-                        id="outlined-basic"
                         variant="outlined"
                         value={password}
                         inputProps={{ minLength: 8 }}
