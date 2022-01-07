@@ -1,7 +1,7 @@
 
 
 export { default as LoginRegister } from "./LoginRegister/LoginRegister.js";
-export { default as UserData } from "./UserData/UserData.js"
+export { default as UserData } from "./UserData.js"
 export { default as NavBar } from "./NavBar.js"
 export { default as Home } from "./Home.js"
 export { default as Routines } from "./Routines.js"

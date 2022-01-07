@@ -1,15 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
 import { callApi } from "../api";
 import { UserContext } from "../context/UserContext"
-import { Container } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
-    routines: {
+    userTitleContainer: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        color: "white"
+    },
+    userRoutinesContainer: {
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        color: "white",
         textAlign: "center",
         fontSize: "25px"
     },
+    userRoutine: {
+        border: "2px solid white",
+        borderRadius: "25px",
+        margin: "20px",
+        width: "300px"
+    }
 }));
 
 const UserRoutines = () => {
@@ -38,26 +55,30 @@ const UserRoutines = () => {
 
     return (
         <>
-            {
-                token ?
-                    <Container container="true" className={classes.routines}>
-                        <h1>My personal routines</h1>
-                        <p>These are all your routines you've posted</p><br />
-                        {
-                            routines.map(routine => {
-                                return (
-                                    <div key={routine.id}>
-                                        <h3>{routine.creatorName}</h3>
-                                        <p>{routine.name}</p>
-                                        <p>{routine.goal}</p>
-                                        <p>{routine.activity}</p>
-                                    </div>
-                                )
-                            })
-                        }
-                    </Container>
-                    : null
-            }
+            <div className={classes.userTitleContainer}>
+                <Typography variant="h2">My Personal Routines</Typography>
+                <Typography variant="h5">These are all your routines you've posted</Typography>
+            </div>
+            <div className={classes.userRoutinesContainer}>
+                {
+                    token ?
+                        <Container container="true" className={classes.userRoutinesContainer}>
+                            {
+                                routines.map(routine => {
+                                    return (
+                                        <div key={routine.id} className={classes.userRoutine}>
+                                            <h3>{routine.creatorName}</h3>
+                                            <p>{routine.name}</p>
+                                            <p>{routine.goal}</p>
+                                            <p>{routine.activity}</p>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </Container>
+                        : ""
+                }
+            </div>
         </>
     )
 }

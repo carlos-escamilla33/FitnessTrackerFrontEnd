@@ -89,7 +89,7 @@ const RoutineActions = () => {
                             input: classes.textBox,
                         },
                     }}
-                    placeholder={"Search For A Routine"}
+                    placeholder={"Filter Routines"}
                     id="standard-basic"
                     variant="standard"
                     value={searchTerm}

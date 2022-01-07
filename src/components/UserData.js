@@ -1,8 +1,16 @@
 import React, { useEffect, useContext } from "react";
-import { callApi } from "../../api";
-import { UserContext } from "../../context/UserContext";
-import useStyles from "./UserStyles";
+import { callApi } from "../api";
+import { UserContext } from "../context/UserContext";
 import { Container } from "@material-ui/core"
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles(() => ({
+    user: {
+        textAlign: "center",
+        marginTop: "15%",
+        fontSize: "50px",
+    }
+}));
 
 const UserData = () => {
     const { token, user } = useContext(UserContext);
