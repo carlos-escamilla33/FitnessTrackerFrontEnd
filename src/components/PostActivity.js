@@ -5,6 +5,17 @@ import { callApi } from "../api";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
+    addActivityButton: {
+        margin: 20,
+        color: "white",
+        fontSize: "20px",
+        width: "280px",
+        fontWeight: "900",
+        border: "1px solid white",
+        "&:hover": {
+            backgroundImage: "linear-gradient(315deg, #000000 0%, #7f8c8d 74%)",
+        },
+    },
     postForm: {
         backgroundColor: "white",
         position: 'absolute',
@@ -16,7 +27,7 @@ const useStyles = makeStyles(() => ({
         border: '2px solid #000',
         transform: 'translate(-50%, -50%)',
     },
-    button: {
+    submitButton: {
         borderRadius: "10px"
     },
 }));
@@ -76,7 +87,10 @@ const PostActivity = () => {
             {
                 token ?
                     <div>
-                        <Button variant="contained" className={classes.addRoutineButton} onClick={handleOpen}>Add A Routine</Button>
+                        <Button 
+                        variant="outlined" 
+                        className={classes.addActivityButton}
+                        onClick={handleOpen}>Add A Routine</Button>
                         <Modal
                             aria-labelledby="transition-modal-title"
                             aria-describedby="transition-modal-description"
@@ -112,7 +126,7 @@ const PostActivity = () => {
                                     /><br />
                                     <div>
                                         <Button
-                                            className={classes.button}
+                                            className={classes.submitButton}
                                             fullWidth={true}
                                             type="submit"
                                             variant="contained"

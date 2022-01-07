@@ -31,15 +31,15 @@ const useStyles = makeStyles(() => ({
         borderRadius: "10px"
     },
     addRoutineButton: {
-        color: "black",
+        color: "white",
         fontSize: "20px",
         width: "280px",
-        fontStyle: "italic",
+        border: "1px solid grey",
+        backgroundColor: "black",
         fontWeight: "900",
         backgroundImage: "white",
         "&:hover": {
             backgroundImage: "linear-gradient(315deg, #000000 0%, #7f8c8d 74%)",
-            color: "white"
         },
     }
 }))
