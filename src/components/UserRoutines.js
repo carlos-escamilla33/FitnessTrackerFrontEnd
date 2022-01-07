@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { callApi } from "../api";
 import { UserContext } from "../context/UserContext"
 import { Container, Typography } from "@material-ui/core";
+import FaceOutlinedIcon from '@mui/icons-material/FaceOutlined';
+import EmojiFlagsOutlinedIcon from '@mui/icons-material/EmojiFlagsOutlined';
 
 import { makeStyles } from "@material-ui/core";
 
@@ -67,9 +69,9 @@ const UserRoutines = () => {
                                 routines.map(routine => {
                                     return (
                                         <div key={routine.id} className={classes.userRoutine}>
-                                            <h3>{routine.creatorName}</h3>
+                                            <h3><FaceOutlinedIcon /><br/>{routine.creatorName}</h3>
                                             <p>{routine.name}</p>
-                                            <p>{routine.goal}</p>
+                                            <p><EmojiFlagsOutlinedIcon /><br/>Goal: {routine.goal}</p>
                                             <p>{routine.activity}</p>
                                         </div>
                                     )

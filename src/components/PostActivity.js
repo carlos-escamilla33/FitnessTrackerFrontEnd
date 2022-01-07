@@ -90,7 +90,7 @@ const PostActivity = () => {
                         <Button 
                         variant="outlined" 
                         className={classes.addActivityButton}
-                        onClick={handleOpen}>Add A Routine</Button>
+                        onClick={handleOpen}>Add An Activity</Button>
                         <Modal
                             aria-labelledby="transition-modal-title"
                             aria-describedby="transition-modal-description"
