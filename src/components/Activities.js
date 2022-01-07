@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { UserContext } from "../../context/UserContext";
-import PostActivity from "../PostActivity/PostActivity";
-import useStyles from "./StylesActivities";
-import activity from '../../media/activity.jpeg';
+import { UserContext } from "../context/UserContext";
+import PostActivity from "./PostActivity";
 import {
     Container,
     Grid,
@@ -11,14 +9,17 @@ import {
     CardContent,
     Typography,
     Button,
-    CardMedia
 } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
+
+// const useStyles = makeStyles(() => ({
+// }))
 
 const Activites = () => {
     const { activities, allActivities, token } = useContext(UserContext);
     const navigate = useNavigate();
-    const classes = useStyles();
+    // const classes = useStyles();
 
     useEffect(() => {
         allActivities();
@@ -26,10 +27,6 @@ const Activites = () => {
     return (
         <Container container="true">
             <PostActivity />
-            <CardMedia
-                className={classes.routineImage}
-                image={activity}
-            />
             <Grid container spacing={3}>
                 {
                     activities.reverse().map(activity => (
@@ -50,7 +47,7 @@ const Activites = () => {
                                                 <Button
                                                     color="inherit"
                                                     size="small"
-                                                    onClick={() => navigate.push(`/activities/${activity.id}`)}
+                                                    onClick={() => navigate(`/activities/${activity.id}`)}
                                                 >Edit</Button>
                                             </>
                                             :
@@ -59,7 +56,7 @@ const Activites = () => {
                                     <Button
                                         color="inherit"
                                         size="small"
-                                        onClick={() => history.push(`/activity/${activity.id}/routines`)}
+                                        onClick={() => navigate(`/activity/${activity.id}/routines`)}
                                     >routines that feature activity</Button>
                                 </Card>
                             </div>

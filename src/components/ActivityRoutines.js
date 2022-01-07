@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { callApi } from "../../api";
+import { callApi } from "../api";
 
 const ActivityRoutines = () => {
     const routineId= useParams();
