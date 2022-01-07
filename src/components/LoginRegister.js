@@ -1,9 +1,32 @@
 import React, { useState, useContext } from "react";
-import { callApi } from "../../api";
+import { callApi } from "../api";
 import { useNavigate, useParams } from "react-router-dom";
-import { UserContext } from "../../context/UserContext.js";
-import useStyles from "./StylesLoginRegister";
-import { Button, Container, TextField, Link } from "@material-ui/core";
+import { UserContext } from "../context/UserContext.js";
+import { Button, Container, TextField, Link, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles(() => ({
+    link: {
+        cursor: "pointer",
+    },
+    title: {
+        textAlign: "center",
+        fontWeight: 900,
+        color: "white",
+        margin: "10px"
+    },
+    form : {
+        height: "600px",
+        width: "600px",
+        border: "2px solid white",
+        padding: "100px",
+        color: "white",
+        borderRadius: "10px"
+    },
+    topSpacing: {
+        marginTop: "25px",
+    }
+}))
 
 const LoginRegister = () => {
     const { setToken, setUser } = useContext(UserContext);
@@ -30,7 +53,7 @@ const LoginRegister = () => {
                     localStorage.setItem("token", response.token);
                     localStorage.setItem("user", response.user.username);
                     setToken(response.token);
-                    navigate("/users/me");
+                    navigate("/");
                 }
             } else if (response.message === "you're signed up!") {
                 navigate("/users/login");
@@ -73,11 +96,11 @@ const LoginRegister = () => {
                 {
                     method === "login" ?
                         <div className={classes.title}>
-                            <h1>Login</h1>
+                            <Typography variant="h2">Login</Typography>
                         </div>
                         :
                         <div className={classes.title}>
-                            <h1>Register</h1>
+                            <Typography variant="h2">Register</Typography>
                         </div>
                 }
                 <div>
