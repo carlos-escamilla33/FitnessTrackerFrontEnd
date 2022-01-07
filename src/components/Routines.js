@@ -20,7 +20,6 @@ const Routines = () => {
     return (
         <>
             <Container container="true" className={classes.routinesContainer}>
-                {/* <PostRoutine /> */}
                 <RoutineActions />
             </Container >
         </>
