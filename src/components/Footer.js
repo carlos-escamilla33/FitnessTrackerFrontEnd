@@ -45,13 +45,13 @@ const Footer = () => {
                     | Contact Us |
                 </a>
             </div>
-            <a className={classes.a} href="mailto:Crodriguezescamilla3@gmail.com">
+            <a className={classes.a} href="https://www.linkedin.com/in/carlos-r-escamilla/">
                 <LinkedInIcon fontSize="large" />
             </a>
-            <a className={classes.a} href="mailto:Crodriguezescamilla3@gmail.com">
+            <a className={classes.a} href="https://twitter.com/CeAllDay3">
                 <TwitterIcon fontSize="large" />
             </a>
-            <a className={classes.a} href="mailto:Crodriguezescamilla3@gmail.com">
+            <a className={classes.a} href="https://github.com/carlos-escamilla33">
                 <GitHubIcon fontSize="large" />
             </a>
         </Paper>
