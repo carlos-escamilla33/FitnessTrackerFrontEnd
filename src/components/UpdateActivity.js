@@ -7,20 +7,24 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     container: {
-        minHeight: "75vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
     },
     form: {
+        border: "2px solid white",
         height: "500px",
         width: "500px",
-        padding: "100px",
-        backgroundColor: "white",
+        padding: "50px",
+        backgroundColor:"black",
+        color: "white",
         borderRadius: "10px"
     },
-    topSpacing: {
-        marginTop: "25px"
+    textField: {
+        marginTop: "15px",
+        marginBottom: "25px",
+        backgroundColor: "white",
+        borderRadius: "10"
     }
 }));
 
@@ -78,13 +82,11 @@ const UpdateActivity = () => {
         <Container container="true" className={classes.container}>
             <form onSubmit={submitHandler} className={classes.form}>
 
-                <h1 style={{textAlign: "center"}}>Update Activity</h1>
+                <h1 style={{ textAlign: "center" }}>Update Activity</h1>
                 <div>
                     <TextField
-                        className={classes.topSpacing}
+                        className={classes.textField}
                         fullWidth={true}
-                        label="activity name"
-                        id="outlined-basic"
                         variant="outlined"
                         value={name}
                         onChange={activityNameHandler}
@@ -94,10 +96,8 @@ const UpdateActivity = () => {
 
                 <div>
                     <TextField
-                    className={classes.topSpacing}
-                    fullWidth={true}
-                        label="description"
-                        id="outlined-basic"
+                        className={classes.textField}
+                        fullWidth={true}
                         variant="outlined"
                         value={description}
                         onChange={descriptionHandler}
@@ -106,12 +106,11 @@ const UpdateActivity = () => {
                 </div>
 
                 <div>
-                    <Button 
-                    fullWidth={true}
-                    color="primary" 
-                    className={classes.topSpacing} 
-                    variant="contained" 
-                    type="submit">Submit</Button>
+                    <Button
+                        fullWidth={true}
+                        color="primary"
+                        variant="contained"
+                        type="submit">Update Activity!</Button>
                 </div>
 
             </form>

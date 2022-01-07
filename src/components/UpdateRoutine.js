@@ -132,9 +132,10 @@ const UpdateRoutine = () => {
                                 }
                             /><br />
                             <Button
+                                color="primary"
                                 variant="contained"
                                 fullWidth={true}
-                                type="submit">Update!</Button>
+                                type="submit">Update Routine!</Button>
                         </form>
                     </Container >
                     : null
