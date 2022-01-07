@@ -99,7 +99,7 @@ const RoutineActions = () => {
             <Grid container spacing={3}>
 
                 {
-                    postsToDisplay.map(routine => {
+                    postsToDisplay.reverse().map(routine => {
                         return (
                             <Grid item key={routine.id} xs={12} md={6} lg={6}>
                                 <Card  style={{color: "white", backgroundColor: "black", border: "1px solid white"}}>

@@ -13,20 +13,22 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
     container: {
-        minHeight: "75vh",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
     form : {
+        border: "2px solid white",
         height: "600px",
         width: "600px",
-        padding: "100px",
-        backgroundColor:"white",
+        padding: "50px",
+        backgroundColor:"black",
+        color: "white",
         borderRadius: "10px"
     },
-    topSpacing: {
-        marginTop: "25px"
+    textBox: {
+        marginTop: "25px",
+        backgroundColor: "white"
     }
 }));
 
@@ -92,18 +94,17 @@ const UpdateRoutine = () => {
             {
                 token ?
                     <Container
-                        className={classes.container
-                        }
+                        className={classes.container}
                         container="true"
                         justify="center"
                         align="center"
                         bottomgutter="true"
                     >
                         <form onSubmit={submitHandler} className={classes.form}>
-                            <h1>Update Your Routine!</h1>
+                            <h1 style={{fontSize: "50px"}}>Update Your Routine</h1>
                             <div>
                                 <TextField
-                                className={classes.topSpacing}
+                                className={classes.textBox}
                                     variant="outlined"
                                     fullWidth={true}
                                     value={name}
@@ -114,13 +115,13 @@ const UpdateRoutine = () => {
                                 <TextField
                                     variant="outlined"
                                     fullWidth={true}
-                                    className={classes.topSpacing}
+                                    className={classes.textBox}
                                     value={goal}
                                     onChange={goalHandler}
                                 />
                             </div>
                             <FormControlLabel
-                                className={classes.topSpacing}
+                                style={{margin: 10}}
                                 label="Make Routine Public"
                                 control={
                                     <Switch
@@ -133,8 +134,7 @@ const UpdateRoutine = () => {
                             <Button
                                 variant="contained"
                                 fullWidth={true}
-                                className={classes.topSpacing}
-                                type="submit">Submit</Button>
+                                type="submit">Update!</Button>
                         </form>
                     </Container >
                     : null

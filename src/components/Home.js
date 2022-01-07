@@ -39,9 +39,11 @@ const useStyles = makeStyles(() => ({
         textDecoration: "none",
         color: "black",
         backgroundColor: "white",
+        border: "2px solid ",
         "&:hover": {
             backgroundImage: "linear-gradient(315deg, #000000 0%, #7f8c8d 74%)",
-            color: "white"
+            color: "white",
+            border: "1px solid white",
         },
     }
 }));
