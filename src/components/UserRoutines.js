@@ -14,6 +14,9 @@ const useStyles = makeStyles(() => ({
         alignItems: "center",
         color: "white"
     },
+    noPostsContainer: {
+         minHeight: "100vh",
+    },
     userRoutinesContainer: {
         display: "flex",
         flexDirection: "row",
@@ -59,23 +62,26 @@ const UserRoutines = () => {
         <>
             <div className={classes.userTitleContainer}>
                 <Typography variant="h2">My Personal Routines</Typography>
-                <Typography variant="h5">These are all your routines you've posted</Typography>
+                <Typography variant="h5">These are all your routines you've posted:</Typography>
             </div>
             <div className={classes.userRoutinesContainer}>
                 {
                     token ?
                         <Container container="true" className={classes.userRoutinesContainer}>
                             {
-                                routines.map(routine => {
+                                routines.length ? routines.map(routine => {
                                     return (
                                         <div key={routine.id} className={classes.userRoutine}>
-                                            <h3><FaceOutlinedIcon /><br/>{routine.creatorName}</h3>
+                                            <h3><FaceOutlinedIcon /><br />{routine.creatorName}</h3>
                                             <p>{routine.name}</p>
-                                            <p><EmojiFlagsOutlinedIcon /><br/>Goal: {routine.goal}</p>
+                                            <p><EmojiFlagsOutlinedIcon /><br />Goal: {routine.goal}</p>
                                             <p>{routine.activity}</p>
                                         </div>
                                     )
-                                })
+                                }) :
+                                    <div className={classes.noPostsContainer}>
+                                        You don't have any routines posted yet...Go to the routines tab to post you routine!
+                                    </div>
                             }
                         </Container>
                         : ""
